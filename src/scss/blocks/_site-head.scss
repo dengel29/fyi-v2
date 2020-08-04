@@ -1,0 +1,21 @@
+.site-head {
+  padding: get-size('400') 0;
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+
+  &__brand {
+    flex-shrink: 0;
+    margin-inline-end: get-size('600'); // Prevents nav bunching up to the logo
+    
+    svg {
+      width: 125px;
+      height: 70;
+      margin:0;
+      padding: 0
+    }
+  }
+}

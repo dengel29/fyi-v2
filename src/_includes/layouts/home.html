@@ -1,0 +1,10 @@
+{% extends "layouts/base.html" %} 
+{% set pageCriticalStyles = ['css/home.css'] %}
+{% block content %}
+<article>
+  <h1>{{ title }}</h1>
+  <div class="page-wrapper">
+        {{ content | safe }}
+  </div>  
+</article>
+{% endblock %}

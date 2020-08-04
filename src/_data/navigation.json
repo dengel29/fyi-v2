@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "text": "About",
+      "url": "/about-dan/",
+      "title": "Get to know me"
+    },
+    {
+      "text": "Work",
+      "url": "/work/",
+      "title": "Some things I've worked on"
+    },
+    {
+      "text": "Blog",
+      "url": "/blog/",
+      "title": "Longer written things"
+    },
+    {
+      "text": "Notes",
+      "url": "/notes/",
+      "title": "Shorter written things"
+    },
+    {
+      "text": "Contact",
+      "url": "/contact/",
+      "title": "In case you want to contact me"
+    }
+  ]
+}
