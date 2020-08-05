@@ -1,10 +1,13 @@
 {% extends "layouts/base.html" %} 
 {% set pageCriticalStyles = ['css/home.css'] %}
 {% block content %}
-<article>
-  <h1>{{ title }}</h1>
-  <div class="page-wrapper">
-        {{ content | safe }}
-  </div>  
+<article class="world-wrap">
+  <div class="home-container">
+    {% include "partials/post-list.html" %}  
+    <div class="visual">
+      <img src="../../images/IMG_1812.JPG" alt="">
+    </div>
+  </div>
 </article>
+{% include "partials/site-foot.html" %}
 {% endblock %}

@@ -1,0 +1,9 @@
+<div class="">
+  <h1>{{postHeader}}</h1>
+
+  <ul>
+  {% for item in posts %}
+    <li>{{ item.data.title }} </li>
+  {% endfor %}  
+  </ul>
+</div>

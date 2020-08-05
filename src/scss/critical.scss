@@ -1,5 +1,6 @@
 @import './functions/get-size';
 @import './functions/get-color';
+@import './mixins/apply-utility';
 @import './config';
 
 // Global styles start
@@ -7,13 +8,23 @@
   --flow-space: #{get-size('600')};
 }
 
+ul {
+  list-style:none;
+  list-style-image: url('../images/bullet.svg');
+}
+
+li {
+  margin-bottom: get-size('300')
+}
+
 body {
-  background: get-color('light');
+  background: get-color('dark');
   // color: get-color('dark-shade');
   line-height: 1.5;
   font-size: get-size('500');
-  font-family: 'Prompt';
-  // @include apply-utility('font', 'base');
+  // font-family: 'Prompt';
+  @include apply-utility('font', 'base');
+  color: get-color('tertiary')
 }
 
 a:not([class]) {
@@ -36,7 +47,7 @@ h3,
 h4 {
   font-weight: 900;
 
-  // @include apply-utility('font', 'sans');
+  @include apply-utility('font', 'sans');
   // @include apply-utility('leading', 'flat');
 }
 
@@ -44,7 +55,7 @@ h4 {
 // folks read the text easier
 ::selection {
   color: get-color('light');
-
+  background-color: get-color('tertiary')
   // We set this as an RGBA because that’s how you get a solid color, by using 0.99
   // alpha value. Browsers are wild.
   // background: rgba(get-color('dark-shade'), 0.99);
@@ -69,8 +80,11 @@ h4 {
 @import 'reset';
 
 // BLOCKS
-@import './blocks/site-head';
 @import './blocks/nav';
+@import './blocks/site-head';
+@import './blocks/site-foot';
+@import './blocks/blobs';
+@import './blocks/home-container';
 
 //UTILITIES
 @import './utilities/wrapper'

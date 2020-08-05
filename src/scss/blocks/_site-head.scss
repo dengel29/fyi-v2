@@ -4,7 +4,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    
   }
 
   &__brand {
@@ -12,7 +11,7 @@
     margin-inline-end: get-size('600'); // Prevents nav bunching up to the logo
     
     svg {
-      width: 125px;
+      width: 140px;
       height: 70;
       margin:0;
       padding: 0

@@ -10,11 +10,22 @@ $size-scale: (
 );
 
 $colors: (
-  'dark': #38445b,
-  'light': #f9f4e3,
-  'primary': hsla(314, 54%, 64%, 1),
+  'dark': hsl(221, 23%, 19%),
+  'light': #f7ebc4,
+  'primary': hsl(314, 54%, 64%),
   'secondary':  hsl(210, 67%, 43%),
   'tertiary': hsla(149, 44%, 80%, 1),
   'quaternary':hsla(44, 83%, 61%, 1),
   'quinary':hsla(12, 85%, 60%, 1) 
 );
+
+$style-config: (
+  'font': (
+    'items': (
+      'base': '"Lato", "Prompt"',
+      // 'sans': '"Red Hat Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+    ),
+    'output': 'standard',
+    'property': 'font-family',
+  ),
+)

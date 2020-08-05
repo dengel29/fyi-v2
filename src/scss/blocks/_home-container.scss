@@ -1,0 +1,14 @@
+// Blocks
+
+.home-container {
+  display:flex;
+  justify-content: space-between;
+  padding: get-size('400') get-size('600');
+}
+
+.visual {
+  max-width: 30%;
+}
+
+.visual::after {
+}

@@ -1,12 +1,38 @@
 /**
  * WRAPPER
- * Sets a max width, adds a consisten gutter and horizontally
+ * Sets a max width, adds a consistent gutter and horizontally
  * centers the contents
  */
+
+ @mixin wrap {
+ 
+ }
  .wrapper {
   max-width: 70rem;
   padding: 0 get-size('500');
   margin-left: auto;
   margin-right: auto;
   position: relative;
+}
+
+.world-wrap {
+  @extend .wrapper;
+  border: 5px solid get-color('secondary');
+  min-height: 80vh;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.world-wrap::before {
+  content: " ";
+  position: absolute;
+  z-index: 0;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border: 2px solid get-color('secondary');
+  box-shadow: 2px -2px -2px 2px get-color('secondary');
+  // background-color: get-color('secondary');
+  border-radius: 3px
 }
