@@ -1,6 +1,7 @@
 $base-size: 1rem;
 
 $size-scale: (
+  '200': $base-size * 0.4,
   '300': $base-size * 0.8,
   '400': $base-size,
   '500': $base-size * 1.25,
@@ -23,9 +24,18 @@ $style-config: (
   'font': (
     'items': (
       'base': '"Lato", "Prompt"',
-      // 'sans': '"Red Hat Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+      'sans': '"Red Hat Display", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
     ),
     'output': 'standard',
     'property': 'font-family',
+  ),
+  'gap-top': (
+    'items': $size-scale,
+    'output': 'responsive',
+    'property': 'margin-top',
+  ),
+  'breakpoints': (
+    'md': '(max-width: 37em)',
+    'lg': '(min-width: 62em)',
   ),
 )

@@ -1,29 +1,22 @@
 {
   "items": [
     {
-      "text": "About",
-      "url": "/about-dan/",
-      "title": "Get to know me"
-    },
-    {
-      "text": "Work",
-      "url": "/work/",
-      "title": "Some things I've worked on"
-    },
-    {
       "text": "Blog",
       "url": "/blog/",
-      "title": "Longer written things"
+      "title": "Longer written things",
+      "highlight": "primary"
     },
     {
       "text": "Notes",
       "url": "/notes/",
-      "title": "Shorter written things"
+      "title": "Shorter written things",
+      "highlight": "quinary"
     },
     {
-      "text": "Contact",
-      "url": "/contact/",
-      "title": "In case you want to contact me"
+      "text": "Now",
+      "url": "/now/",
+      "title": "What's going on now",
+      "highlight": "tertiary"
     }
   ]
 }

@@ -1,12 +1,11 @@
+$highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary');
+
 /**
  * WRAPPER
  * Sets a max width, adds a consistent gutter and horizontally
  * centers the contents
  */
 
- @mixin wrap {
- 
- }
  .wrapper {
   max-width: 70rem;
   padding: 0 get-size('500');
@@ -17,22 +16,28 @@
 
 .world-wrap {
   @extend .wrapper;
-  border: 5px solid get-color('secondary');
   min-height: 80vh;
   border-radius: 5px;
   margin-bottom: 10px;
+  @each $highlight in $highlights {
+    &[data-highlight='#{$highlight}'] {
+      $page-theme-primary: get-color($highlight); 
+      border: 5px solid $page-theme-primary;
+    }
+    &[data-accent='#{$highlight}']{
+      &::before {
+        content: " ";
+        position: absolute;
+        z-index: -1;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        border-radius: 3px ;
+        border: 5px solid get-color($highlight)
+        
+    }
+  }
+   
 }
-
-.world-wrap::before {
-  content: " ";
-  position: absolute;
-  z-index: 0;
-  top: 5px;
-  left: 5px;
-  right: 5px;
-  bottom: 5px;
-  border: 2px solid get-color('secondary');
-  box-shadow: 2px -2px -2px 2px get-color('secondary');
-  // background-color: get-color('secondary');
-  border-radius: 3px
 }

@@ -1,0 +1,22 @@
+{% extends "layouts/base.html" %}
+{% set pageCriticalStyles = ['css/page.css'] %}
+{% set posts = helpers.getSiblingContent(collections.blog, page) %}
+{% block content %}
+
+  <article class="page-wrapper">
+    <div class="page-header">
+      <h3 class="page-headline">{{title}}</h3>
+    </div>
+    
+    <div class="[ page-content gap-top-700 ]">
+      <img src="{{examplePic}}" alt="">
+      {{ content | safe }}
+    </div>
+    <footer class="recommended-posts">
+      <!-- {% set postListItems = recommendedPosts %} -->
+      <!-- {% set postListHeadline = 'More from the blog' %} -->
+      <!-- {% include "partials/post-list.html" %} -->
+    </footer>
+  </article>
+  {% include "partials/more-posts.html" %}
+{% endblock %}

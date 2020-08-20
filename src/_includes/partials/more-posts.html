@@ -1,0 +1,19 @@
+<!-- <div class="wrapper">
+  <div class="">
+  {% for item in morePosts %}
+  <li class="[ post-list__item ] [ leading-tight measure-long ]">
+    <a href="{{ item.url }}" class="post-list__link">{{ item.data.title }}</a>
+  </li>
+  {% endfor %}
+  </div>
+</div> -->
+<div class="more-posts-wrapper">
+  <div class="more-posts">
+    <div class="more-posts__inner">
+      {% include "partials/post-list.html" %}
+    </div>
+    
+</div>
+</div>
+
+{% include "partials/site-foot.html" %}

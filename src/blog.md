@@ -1,6 +1,8 @@
 ---
 title: "Dan's Blog"
-layout: ''
+layout: 'layouts/home.html'
+list: true
+postHeader: "Some more thoughts, coding an otherwise"
 pagination:
   data: collections.blog
   size: 5
@@ -9,4 +11,6 @@ permalink: 'blog{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber
 paginationPrevText: 'Newer posts'
 paginationNextText: 'Older posts'
 paginationAnchor: '#post-list'
+borderHighlight: "primary"
+accentHighlight: "secondary"
 ---

@@ -1,0 +1,36 @@
+@import './mixins/media-query';
+@import './functions/get-size';
+
+.more-posts__wrapper {
+  width:100vw;
+}
+
+.more-posts {
+  margin-top: 1em;
+  background-color: get-color('tertiary');
+  border-radius: 5px;
+  border-top: 5px solid get-color('primary');
+  border-bottom: 3px solid get-color('secondary');
+  box-shadow: 2px 1px 0px 1px get-color('secondary');
+  padding-left: .8rem;
+  padding-top: .5em;
+  padding-bottom: 2.5em;
+  margin-right:4em;
+  height: 70%;
+  margin-left: -5px;
+}
+
+.more-posts__inner {
+  font-size: get-size('500');
+  padding-right:get-size('300');
+  @include media-query('md') {
+    font-size: get-size('500');
+    padding-right:get-size('200');
+  }
+
+  ul {
+    display:flex;
+    flex-direction: column;
+    text-align: right;
+  }
+}

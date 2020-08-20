@@ -2,7 +2,7 @@
 @import './functions/get-color';
 @import './mixins/apply-utility';
 @import './config';
-
+$highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary');
 // Global styles start
 :root {
   --flow-space: #{get-size('600')};
@@ -10,21 +10,39 @@
 
 ul {
   list-style:none;
-  list-style-image: url('../images/bullet.svg');
 }
 
 li {
-  margin-bottom: get-size('300')
+  margin-bottom: get-size('300');
+
+  & > a > svg {
+    margin-right:get-size('200')
+  }
+  path {
+    @each $highlight in $highlights {
+      &[data-accent='#{$highlight}'] {
+        fill:get-color($highlight);
+      }
+    };
+  }
+
+  path {
+    @each $highlight in $highlights {
+      &[data-highlight='#{$highlight}'] {
+        fill:get-color($highlight);
+      }
+    }
+  }
 }
 
 body {
-  background: get-color('dark');
+  background: get-color('light');
   // color: get-color('dark-shade');
   line-height: 1.5;
   font-size: get-size('500');
   // font-family: 'Prompt';
   @include apply-utility('font', 'base');
-  color: get-color('tertiary')
+  color: get-color('secondary')
 }
 
 a:not([class]) {
@@ -85,6 +103,7 @@ h4 {
 @import './blocks/site-foot';
 @import './blocks/blobs';
 @import './blocks/home-container';
+@import './blocks/post-list';
 
 //UTILITIES
 @import './utilities/wrapper'

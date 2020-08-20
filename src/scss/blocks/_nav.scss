@@ -1,3 +1,5 @@
+$highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary');
+
 .nav {
   line-height: 1;
   font-weight: 900;
@@ -30,8 +32,17 @@
         top: 100%;
         left: 0;
         margin-top: 0.25rem;
-        background: get-color('quinary-shade');
+        // background: get-color('quinary-shade');
       }
+      @each $highlight in $highlights {
+        &[data-highlight='#{$highlight}'] {
+          text-decoration: underline;
+          text-decoration-color:get-color($highlight);
+          text-decoration-thickness: .1em;
+          text-underline-offset: get-size('200');
+          text-decoration-skip-ink: auto;
+        }
+      };
     }
   }
 }

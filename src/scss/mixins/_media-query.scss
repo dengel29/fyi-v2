@@ -1,0 +1,12 @@
+@mixin media-query($key) {
+  $breakpoints: map-get($style-config, 'breakpoints');
+  $matched-breakpoint: map-get($breakpoints, $key);
+
+  @if not $matched-breakpoint {
+    @warn #{ 'Breakpoint, ‘' + $key + '’ not found in `$style-config`. Make sure it’s set in the ‘breakpoints’ section.' };
+  } @else {
+    @media #{ $matched-breakpoint } {
+      @content;
+    }
+  }
+}

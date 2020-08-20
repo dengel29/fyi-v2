@@ -1,13 +1,21 @@
 {% extends "layouts/base.html" %} 
 {% set pageCriticalStyles = ['css/home.css'] %}
 {% block content %}
-<article class="world-wrap">
-  <div class="home-container">
-    {% include "partials/post-list.html" %}  
-    <div class="visual">
-      <img src="../../images/IMG_1812.JPG" alt="">
+  <article class="world-wrap" data-highlight="{{borderHighlight}}" data-accent="{{accentHighlight}}">
+    <h1 class="home-headline" style="position:relative">{{postHeader}}</h1>
+    <div class="home-container">
+      
+      {% if list %}
+        {% include "partials/post-list.html" %} 
+      {% else %}
+        <article>
+          {{content | safe}}
+        </article>
+      {% endif %}
+      <div class="visual">
+        <img src="../../images/IMG_1812.JPG" alt="">
+      </div>
     </div>
-  </div>
-</article>
-{% include "partials/site-foot.html" %}
+  </article>
+  {% include "partials/site-foot.html" %}
 {% endblock %}

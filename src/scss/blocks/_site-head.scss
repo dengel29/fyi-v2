@@ -12,9 +12,17 @@
     
     svg {
       width: 140px;
-      height: 70;
+      height: get-size('700');
       margin:0;
-      padding: 0
+      padding: get-size('800');
+
+      path {
+        @each $highlight in $highlights {
+          &[data-highlight='#{$highlight}'] {
+            fill:get-color($highlight);
+          }
+        }
+      }
     }
   }
 }

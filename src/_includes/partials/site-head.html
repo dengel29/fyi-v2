@@ -8,7 +8,7 @@
         <ul class="nav__list">
           {% for item in navigation.items %}
           <li>
-            <a href="{{ item.url }}" title="{{ item.title }}">{{ item.text }}</a>
+            <a {{ helpers.getLinkActiveState(item.url, page.url) | safe }} href="{{ item.url }}" title="{{ item.title }}" data-highlight="{{item.highlight}}">{{ item.text }}</a>
           </li>
           {% endfor %}
         </ul>

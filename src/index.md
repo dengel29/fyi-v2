@@ -6,6 +6,6 @@ pagination:
   size: 5
   alias: posts
 postHeader: "It's hard to keep up with a blog"
+borderHighlight: "primary"
+accentHighlight: "secondary"
 ---
-
-What've I been up to?
