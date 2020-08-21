@@ -1,13 +1,48 @@
 // Blocks
+@import './mixins/media-query';
 
 .home-container {
-  display:flex;
-  justify-content: space-between;
-  padding: get-size('400') get-size('600');
+  display:grid;
+  width: 100%;
+  grid-template-areas: 
+  "hl hl hl hl . kv kv kv kv"
+  "ar ar ar . . kv kv kv kv"
+  "ar ar ar . . kv kv kv kv"
+  "ar ar ar . . kv kv kv kv";
+  @include media-query('md') {
+    grid-template-areas: 
+    "hl hl hl hl"
+    "ar ar ar ."
+    "ar ar ar ."
+    "ar ar ar ."
+    "kv kv kv kv"
+    "kv kv kv kv"
+    "kv kv kv kv"
+    "kv kv kv kv";
+  }
+
+}
+
+.home-container article { 
+   grid-area: ar
+}
+
+.home-container .post-list {
+  grid-area: ar
+}
+
+.home-headline {
+  max-width: 64ch;
+  margin-bottom: 0.4em;
+  grid-area: hl;
+  justify-self: center;
 }
 
 .visual {
-  max-width: 30%;
+  max-width: 70%;
+  place-self:center;
+  // min-height:40%;
+  grid-area: kv
 }
 
 .visual::after {

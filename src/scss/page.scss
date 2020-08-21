@@ -4,11 +4,33 @@
 @import './mixins/media-query';
 @import './config';
 
+.page-wrapper {
+  width: 55%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  text-align:left;
+  color:lighten(black, 15%);
+  font-size:get-size('500');
+  font-family: Lato;
+  font-kerning: 0px;
+  margin-left: 5em;
+  text-overflow: none;
+  @include media-query('md') {
+    margin-left:2em;
+  }
+
+  @include media-query('lg') {
+    margin-left: 5em;
+  }
+  
+}
+
 .page-header {
   display:flex;
   justify-content: left;
   padding-left:get-size('200');
-  background-color: get-color('tertiary');
+  background-color: get-color('light');
   width: 92.4vw;
   // height: 6em;
   font-size: 24px;
@@ -17,10 +39,10 @@
  
   border-top: 5px solid get-color('primary');
   border-bottom: 3px solid get-color('secondary');
+  border-left: 1px solid get-color('secondary');
   box-shadow: 2px 1px 0px -1px get-color('secondary');
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
-  border-right: 0px solid white;
 }
 
 ul {
@@ -41,6 +63,7 @@ ul {
 
   @include media-query('md') {
     font-size: get-size('500');
+    margin-right:1em;
     width: 32ch
   }
 
@@ -48,27 +71,6 @@ ul {
     font-size: get-size('600');
     width: 64ch
    }
-}
-
-.page-wrapper {
-  width: 55%;
-  display:flex;
-  flex-direction:column;
-  justify-content:left;
-  color:get-color('dark');
-  font-size:get-size('500');
-  font-family: Lato;
-  font-kerning: 0px;
-  margin-left: 4em;
-
-  @include media-query('md') {
-    margin-left:2em;
-  }
-
-  @include media-query('lg') {
-    margin-left: 4em;
-  }
-  text-overflow: none;
 }
 
 pre {
@@ -87,6 +89,5 @@ pre {
 }
 
 pre code {
-  
-  color:get-color('tertiary')
+  color:get-color('light')
 }

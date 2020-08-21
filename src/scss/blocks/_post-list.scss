@@ -7,7 +7,8 @@
 
 .more-posts {
   margin-top: 1em;
-  background-color: get-color('tertiary');
+  color: get-color('dark');
+  background-color: get-color('light');
   border-radius: 5px;
   border-top: 5px solid get-color('primary');
   border-bottom: 3px solid get-color('secondary');
@@ -15,9 +16,12 @@
   padding-left: .8rem;
   padding-top: .5em;
   padding-bottom: 2.5em;
-  margin-right:4em;
+  margin-right:8em;
   height: 70%;
   margin-left: -5px;
+  @include media-query('md') {
+    margin-right:3em;
+  }
 }
 
 .more-posts__inner {

@@ -5,6 +5,7 @@ $highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary
   font-weight: 900;
   margin-top: -#{get-size('400')};
   margin-inline-start: -#{get-size('400')};
+  color: get-color('dark');
 
   &__list {
     display: flex;

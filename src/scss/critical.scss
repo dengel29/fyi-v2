@@ -8,6 +8,10 @@ $highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary
   --flow-space: #{get-size('600')};
 }
 
+.site-wrap {
+  overflow-x:hidden;
+}
+
 ul {
   list-style:none;
 }
@@ -37,12 +41,10 @@ li {
 
 body {
   background: get-color('light');
-  // color: get-color('dark-shade');
   line-height: 1.5;
   font-size: get-size('500');
   // font-family: 'Prompt';
   @include apply-utility('font', 'base');
-  color: get-color('secondary')
 }
 
 a:not([class]) {
