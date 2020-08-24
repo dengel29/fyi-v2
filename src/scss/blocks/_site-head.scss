@@ -1,15 +1,27 @@
+@import '../mixins/media-query';
+
+
 .site-head {
   padding: get-size('400') 0;
+  border-top: 4px solid #1f567a;
   &__inner {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-left:4em;
+    @include media-query('md') {
+      margin-left:1em;
+    }
+  
+    // @include media-query('lg') {
+    //   margin-left: 5em;
+    // }
   }
 
   &__brand {
     flex-shrink: 0;
     margin-inline-end: get-size('600'); // Prevents nav bunching up to the logo
-    
+    margin-top: auto;
     svg {
       width: 140px;
       height: get-size('700');

@@ -4,6 +4,10 @@
 .home-container {
   display:grid;
   width: 100%;
+  margin-left:4em;
+  @include media-query('md') {
+    margin-left:1em;
+  }
   grid-template-areas: 
   "hl hl hl hl . kv kv kv kv"
   "ar ar ar . . kv kv kv kv"
@@ -40,7 +44,7 @@
 
 .visual {
   max-width: 70%;
-  place-self:center;
+  justify-self:center;
   // min-height:40%;
   grid-area: kv
 }

@@ -68,7 +68,7 @@ ul {
   }
 
   @include media-query('lg') {
-    font-size: get-size('600');
+    font-size: get-size('500');
     width: 64ch
    }
 }

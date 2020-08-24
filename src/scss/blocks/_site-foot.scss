@@ -19,6 +19,7 @@
 	display: flex;
 	justify-content: flex-end;
 	background-color: blue;
+	border-radius: 4px;
 	width: 20%;
 	height: 100%;
 	transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
@@ -29,7 +30,7 @@
 	background-color: #c2b280;
 	width: 100px;
 	height: 80px;
-	// margin-left: auto;
+	border-radius: 4px;
 	transform: rotateX(60deg) rotateY(0deg) rotateZ(-45deg);
 }
 
