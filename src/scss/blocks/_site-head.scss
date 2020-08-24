@@ -8,10 +8,10 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-left:4em;
-    @include media-query('md') {
-      margin-left:1em;
-    }
+    // margin-left:4em;
+    // @include media-query('md') {
+    //   margin-left:1em;
+    // }
   
     // @include media-query('lg') {
     //   margin-left: 5em;

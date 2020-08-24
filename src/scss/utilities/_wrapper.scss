@@ -9,9 +9,12 @@ $highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary
  .wrapper {
   max-width: 70rem;
   padding: 0 get-size('500');
-  margin-left: auto;
   margin-right: auto;
   position: relative;
+  margin-left:4em;
+  @include media-query('md') {
+    margin-left:1em;
+  }
 }
 
 .world-wrap {

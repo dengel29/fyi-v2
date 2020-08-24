@@ -4,10 +4,6 @@
 .home-container {
   display:grid;
   width: 100%;
-  margin-left:4em;
-  @include media-query('md') {
-    margin-left:1em;
-  }
   grid-template-areas: 
   "hl hl hl hl . kv kv kv kv"
   "ar ar ar . . kv kv kv kv"
@@ -39,7 +35,7 @@
   max-width: 64ch;
   margin-bottom: 0.4em;
   grid-area: hl;
-  justify-self: center;
+  // justify-self: center;
 }
 
 .visual {
