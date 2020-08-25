@@ -1,6 +1,44 @@
 @import 'config';
+@import './functions/get-color';
+@import './functions/get-size';
 
 
 article > * {
   margin: revert;
+}
+
+.readings {
+  &__wrapper {
+    margin-top: 1em;
+    text-align: center;
+  }
+  > * * {
+    margin:revert;
+  }
+
+  &__inner {
+    ul {
+      margin:revert;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+  
+    > * {
+      flex-shrink: 0;
+      padding: 0 0 get-size('400') 0;
+    }
+  
+      li {
+        color: get-color('dark');
+        margin: 0.6em;
+        max-width: 9em;
+        border: 2px solid #1f567a;
+        padding: .6em;
+        border-radius: 2px;
+        font-size: get-size('400')
+      }
+    }
+  }
 }

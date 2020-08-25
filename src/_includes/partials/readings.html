@@ -1,0 +1,16 @@
+<div class="readings__wrapper">
+  <div class="readings__inner">
+    <h3>Things I'm Reading</h3>
+    <div class="readings__list">
+      <ul>
+        {% for item in readings %}
+        <a href="{{item.URL}}">
+        <li>
+          {{item.Title}}
+        </li>
+      </a>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>

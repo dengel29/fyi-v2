@@ -18,5 +18,10 @@
       </div>
     </div>
   </article>
+  {% if list %}
+  {% else %}
+    {% include "partials/readings.html" %}
+  {% endif %}
   {% include "partials/site-foot.html" %}
+
 {% endblock %}
