@@ -61,6 +61,11 @@ ul {
 .page-content {
   margin-top: get-size('500');
 
+  p {
+    margin-bottom: revert;
+    
+  }
+
   @include media-query('md') {
     font-size: get-size('500');
     margin-right:1em;
