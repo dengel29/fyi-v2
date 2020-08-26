@@ -60,6 +60,21 @@ ul {
 
 .page-content {
   margin-top: get-size('500');
+  summary {
+    cursor: pointer;
+    margin-bottom:1em;
+  }
+  blockquote {
+
+    @include media-query('md') {
+      width:28ch;
+      margin-left: 0.8em;
+    }
+    @include media-query('lg') {
+      width:48ch;
+      margin-left: 1em;
+    }
+  }
 
   p {
     margin-bottom: revert;
