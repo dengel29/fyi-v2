@@ -7,31 +7,50 @@ article > * {
   margin: revert;
 }
 
+@media (pointer: coarse) and (pointer: fine) {
+  .readings__header:focus p::after {
+    position:absolute;
+    content: "These articles pull from a Github workflow I made that updates with articles I'm reading. Click on the heading to read about it";
+    background-color: lighten(get-color('dark'), 50%);
+    padding: 0.8em;
+    color: get-color('color');
+    border-radius:3px;
+    min-width:4em;
+    max-width:10em;
+    text-align:center; 
+  }
+}
+
+#sketch-container > canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
 .readings {
   &__header {
     display:flex;
     flex-direction:row;
     margin-left:2em;
-      p {
-        font-size: get-size('400');
-        margin-left:0.8em;
-        color:get-color('dark');
-        cursor: help;
-        }
-      @media (hover: hover) {
-        p:hover::after {
-          position:absolute;
-          content: "These articles pull from a Github workflow I made that updates with articles I'm reading. Click on the heading to read about it";
-          background-color: lighten(get-color('dark'), 50%);
-          margin-left: 2px;
-          padding: 0.4em;
-          color: get-color('color');
-          border-radius:3px;
-          min-width:4em;
-          max-width:10em;
-          text-align:center; 
-        }
+    p {
+      font-size: get-size('400');
+      margin-left:0.8em;
+      color:get-color('dark');
+      padding:2px;
+      cursor: help;
+    }
+    @media (hover: hover) {
+      p:hover::after {
+        position:absolute;
+        content: "These articles pull from a Github workflow I made that updates with articles I'm reading. Click on the heading to read about it";
+        background-color: lighten(get-color('dark'), 50%);
+        padding: 0.8em;
+        color: get-color('color');
+        border-radius:3px;
+        min-width:4em;
+        max-width:10em;
+        text-align:center; 
       }
+    }
   }
   &__wrapper {
     margin-top: 1em;

@@ -8,4 +8,6 @@ pagination:
 postHeader: "It's hard to keep up with a blog"
 borderHighlight: "primary"
 accentHighlight: "secondary"
+p5: true
+p5scripts: [/scripts/boid.js, /scripts/predator.js, scripts/logic.js]
 ---

@@ -13,7 +13,11 @@
         </article>
       {% endif %}
       <div class="visual">
-        <img src="../../images/IMG_1812.JPG" alt="">
+        {% if p5 %}
+          <div id="sketch-container"></div>
+        {% else  %}
+          <img src="../../images/IMG_1812.JPG" alt="">    
+        {% endif %}
       </div>
       </div>
     </div>
