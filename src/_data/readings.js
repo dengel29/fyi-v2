@@ -10,7 +10,7 @@ const Cache = require('@11ty/eleventy-cache-assets')
 module.exports = async () => {
   try {
     const data = await Cache(
-      'https://raw.githubusercontent.com/dengel29/readings-workflow/master/output/articles.json',
+      'https://raw.githubusercontent.com/dengel29/fyi-v2/master/workflow-output/articles.json',
       {
         duration: '1h',
         type: 'json'
