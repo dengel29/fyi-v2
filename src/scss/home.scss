@@ -10,7 +10,7 @@ article > * {
 @media (pointer: coarse) and (pointer: fine) {
   .readings__header:focus p::after {
     position:absolute;
-    content: "These articles pull from a Github workflow I made that updates with articles I'm reading. Click on the heading to read about it";
+    content: "The articles here are sent from my phone and updated twice daily. Click on the link on the left to read about it";
     background-color: lighten(get-color('dark'), 50%);
     padding: 0.8em;
     color: get-color('color');
@@ -41,7 +41,7 @@ article > * {
     @media (hover: hover) {
       p:hover::after {
         position:absolute;
-        content: "These articles pull from a Github workflow I made that updates with articles I'm reading. Click on the heading to read about it";
+        content: "The articles here are sent from my phone and updated twice daily. Click on the link on the left to read about it";
         background-color: lighten(get-color('dark'), 50%);
         padding: 0.8em;
         color: get-color('color');
