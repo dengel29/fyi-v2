@@ -2,7 +2,7 @@
 title: "Short notes"
 layout: 'layouts/home.html'
 list: true
-postHeader: "Some notes, quick thoughts, ideas, connections, et cetera."
+postHeader: "Reading time one minute or less"
 pagination:
   data: collections.notes
   size: 5
