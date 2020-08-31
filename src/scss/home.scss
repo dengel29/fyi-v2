@@ -67,7 +67,11 @@ article > * {
       align-items: center;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
-  
+    
+    a {
+      margin-right: 0.8em;
+      text-decoration:none;
+    }
     > * {
       flex-shrink: 0;
       padding: 0 0 get-size('400') 0;
@@ -75,14 +79,19 @@ article > * {
   
       li {
         color: get-color('dark');
-        margin-right: 0.8em;
-        width: 9em;
-        height: 10em;
+        width: 11em;
+        height: 12em;
         border: 2px solid get-color('dark');
         padding: .6em;
         border-radius: 2px;
-        font-size: get-size('400')
+        font-size: get-size('400');
       }
     }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 }

@@ -1,0 +1,48 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Tasker
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+# events but only for the master branch
+on: workflow_dispatch
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "get_rows"
+  get_rows:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Runs a single command using the runners shell
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Create timestamp
+      shell: bash
+      run: |
+        now=$(date -d '+8 hours' '+%F %T') 
+        echo "Current time : ${now}" > timestamp.txt
+    - name: Get the rows from the Airtable, copy to file
+      shell: bash
+      env:
+        AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
+      run: |
+        curl "https://api.airtable.com/v0/appYYsUDUnkHDLuA5/Table%201?maxRecords=10&view=Grid%20view" -H "Authorization: Bearer ${AIRTABLE_KEY}" > articles.json
+    - name: Move to output folder
+      run: |
+        yes| cp -rf articles.json ./workflow-output/ 
+        yes| cp -rf timestamp.txt ./workflow-output/
+        rm -rf articles.json
+        rm -rf timestamp.txt
+    - name: Commit files
+      run: | 
+        git config --local user.email "dengel29@gmail.com"
+        git config --local user.name "dengel29"
+        git add .
+        git commit -m "Workflow job: Add new articles Airtable"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        force: true

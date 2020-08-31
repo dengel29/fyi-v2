@@ -19,6 +19,7 @@
     "gulp": "^4.0.2",
     "gulp-clean-css": "^4.3.0",
     "gulp-sass": "^4.1.0",
+    "html-minifier": "^4.0.0",
     "sass": "^1.26.10"
   },
   "devDependencies": {

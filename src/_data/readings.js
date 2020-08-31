@@ -18,10 +18,14 @@ module.exports = async () => {
     )
 
     let articles = []
-    console.log(data.records.length)
     data.records.forEach(record => {
+      record.fields.Tags = [record.fields.Tags]
+      record.fields.CreatedTime = record.createdTime.split('T')[0]
       articles.push(record.fields)
+
+
     });
+
     console.log(articles)
     return articles
   } catch (err) {

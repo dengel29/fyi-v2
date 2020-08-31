@@ -2,6 +2,8 @@
 title: "What Am I Doing Now"
 layout: 'layouts/home.html'
 postHeader: "Now"
+p5: true
+p5scripts: [/scripts/sand.js]
 ---
 I'm living in Taiwan.
 

@@ -9,8 +9,23 @@
       <ul>
         {% for item in readings %}
         <a href="{{item.URL}}">
-        <li>
-          {{item.Title}}
+        <li class="readings__item">
+          <div class="reading__title">
+            {{item.Title}}
+          </div>
+          
+
+          <div class="reading__metadata">
+            <!-- <div class="metadata__tag">
+              {%for tag in item.Tags%}
+                {{tag}}
+              {%endfor%}  
+            </div> -->
+            <div class="time" style="color:grey">
+              Saved on: {{item.CreatedTime}}
+            </div>
+            
+          </div>
         </li>
       </a>
         {% endfor %}
