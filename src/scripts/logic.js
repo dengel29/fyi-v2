@@ -8,7 +8,7 @@ let sketch = function (p) {
   let cohesionSlider, alignmentSlider, separationSlider;
   p.setup = function () {
     d = '#f3fffd'
-    CANVAS = p.createCanvas(640, 360);
+    CANVAS = p.createCanvas(640, 360).mouseMoved(movePredator);;
     // alignmentSlider = p.createSlider(0, 5, 1, 0.1);
     // cohesionSlider = p.createSlider(0, 5, 1, 0.1);
     // separationSlider = p.createSlider(0, 5, 1, 0.1);
@@ -175,7 +175,7 @@ let sketch = function (p) {
         let perceptionRadius = 70
         let steeringForce = p.createVector();
         let total = 0;
-        let d = dist(
+        let d = p.dist(
           this.position.x,
           this.position.y,
           predator.position.x,
@@ -222,20 +222,6 @@ let sketch = function (p) {
         p.pop();
       }
     }
-
-    class Predator {
-      constructor(posX, posY) {
-        this.position = p.createVector(posX, posY)
-      }
-
-      update(posX, posY) {
-        this.position = p.createVector(posX, posY)
-      }
-      show(posX, posY) {
-        p.ellipse(posX, posY, 20)
-      }
-    }
-
     for (i = 0; i < 75; i++) {
       flock.push(new Boid())
     }
@@ -245,6 +231,28 @@ let sketch = function (p) {
     // })
   }
 
+  class Predator {
+    constructor(posX, posY) {
+      this.position = p.createVector(posX, posY)
+    }
+
+    update(posX, posY) {
+      this.position = p.createVector(posX, posY)
+    }
+    show(posX, posY) {
+      p.ellipse(posX, posY, 20)
+    }
+  }
+
+
+  movePredator = function () {
+    // flock.push(new Boid(mouseX, mouseY))
+    if (p.mouseIsPressed) {
+      x = p.pmouseX
+      y = p.pmouseY
+      predator = new Predator(x, y)
+    }
+  }
 
   p.draw = function () {
     CANVAS.background(d)
