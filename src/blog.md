@@ -13,4 +13,5 @@ paginationNextText: 'Older posts'
 paginationAnchor: '#post-list'
 borderHighlight: "primary"
 accentHighlight: "secondary"
+imgSrc: ../../images/bb-reflection.jpg
 ---

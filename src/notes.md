@@ -12,4 +12,5 @@ paginationNextText: 'Older posts'
 paginationAnchor: '#post-list'
 borderHighlight: "quinary"
 accentHighlight: "quaternary"
+imgSrc: ../../images/shenzhen-flare.jpg
 ---
