@@ -25,9 +25,7 @@ module.exports = async () => {
 
 
     });
-
-    console.log(articles)
-    return articles
+    return articles.reverse()
   } catch (err) {
     console.log(err)
     return [];
