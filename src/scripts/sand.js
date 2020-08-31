@@ -3,7 +3,7 @@ let sketch = function (p) {
   const empty = 255
   SWITCH = 0
   p.setup = function () {
-    CANVAS = p.createCanvas(320, 100);
+    CANVAS = p.createCanvas(320, 100).mouseMoved(handDropSand);
     p.pixelDensity(1);
     CANVAS.background(255);
     p.frameRate(30)
@@ -61,20 +61,31 @@ let sketch = function (p) {
     p.updatePixels();
   }
 
-  /**
-   * 
-   * @param {Event} e the mouse press event
-   */
-  p.mouseDragged = function (e) {
-    p.loadPixels();
-    let d = p.pixelDensity();
-    let off = Grain.getOffset(e.x, e.y, CANVAS.width, d)
-    let grain = new Grain(off, e.x, e.y, CANVAS.width)
-    // grain.colorPixel()
-    colorPixel(grain);
-    grains.push(grain)
-    p.updatePixels()
+  handDropSand = function () {
+    if (p.mouseIsPressed) {
+      p.loadPixels();
+      let d = p.pixelDensity();
+      let off = Grain.getOffset(Math.round(p.pmouseX), Math.round(p.pmouseY), CANVAS.width, d)
+      let grain = new Grain(off, Math.round(p.pmouseX), Math.round(p.pmouseY), CANVAS.width)
+      colorPixel(grain);
+      grains.push(grain)
+      p.updatePixels()
+    }
   }
+  // /**
+  //  * 
+  //  * @param {Event} e the mouse press event
+  //  */
+  // p.mouseDragged = function (e) {
+  //   p.loadPixels();
+  //   let d = p.pixelDensity();
+  //   let off = Grain.getOffset(e.x, e.y, CANVAS.width, d)
+  //   let grain = new Grain(off, e.x, e.y, CANVAS.width)
+  //   // grain.colorPixel()
+  //   colorPixel(grain);
+  //   grains.push(grain)
+  //   p.updatePixels()
+  // }
 
   dropSand = function () {
     p.loadPixels();
