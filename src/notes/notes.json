@@ -1,6 +1,6 @@
 {
   "layout": "layouts/post.html",
   "permalink": "/notes/{{ title | slug }}/index.html",
-  "borderHighlight": "quinary",
+  "highlight": "quinary",
   "accentHighlight": "quaternary"
 }

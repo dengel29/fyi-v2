@@ -1,13 +1,5 @@
-.site-foot {
-  &__inner {
-    display: flex;
-    flex-direction:column;
-    align-items: center;
-    p {
-      
-    }
-  }
-}
+$highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary');
+
 
 .foam {
 	background-color: white;
@@ -40,5 +32,56 @@
 	}
 	20% {
 		width: 40%
+	}
+}
+
+.site-foot {
+	display:flex;
+	margin: 0 auto;
+	flex-direction: column;
+	align-items: center;
+	&__inner {
+		margin-top: 3.5em;
+	}
+	&__grid {
+		display: grid;
+		max-width:15em;
+		grid-template-areas:
+		"sup . side"
+		"sup . side"
+		"sup . side" 
+		;
+	}
+	.straight-up {
+		grid-area: sup;
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+		width:13em;
+	}
+	.sideways {
+		writing-mode: vertical-rl;
+		text-orientation: sideways;
+		grid-area: side;
+	}
+	&__contact {
+		display:flex;
+		justify-content: space-around;
+		width: 40%;
+		min-width: 10em;
+		
+		svg {
+			width: 1.5em;
+			&:hover {
+				opacity: 0.8
+			};
+			path {
+				@each $highlight in $highlights {
+					&[data-highlight='#{$highlight}'] {
+						fill:get-color($highlight);
+					}
+				}
+			}
+		}
 	}
 }

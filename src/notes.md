@@ -10,7 +10,8 @@ pagination:
 paginationPrevText: 'Newer posts'
 paginationNextText: 'Older posts'
 paginationAnchor: '#post-list'
-borderHighlight: "quinary"
+highlight: "quinary"
 accentHighlight: "quaternary"
 imgSrc: ../../images/shenzhen-flare.jpg
+imgAlt: 'An art installation in Shenzhen, a small tuktuk or Chinese three-wheel car with neon lights bursting out of it'
 ---

@@ -3,7 +3,7 @@ let sketch = function (p) {
   const empty = 255
   SWITCH = 0
   p.setup = function () {
-    CANVAS = p.createCanvas(320, 1000).mouseMoved(handDropSand);
+    CANVAS = p.createCanvas(320, 600).mouseMoved(handDropSand);
     p.pixelDensity(1);
     CANVAS.background(255);
     p.frameRate(30)
