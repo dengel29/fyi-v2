@@ -25,7 +25,7 @@ module.exports = async () => {
 
 
     });
-    return articles.reverse()
+    return articles.reverse().slice(0, 9)
   } catch (err) {
     console.log(err)
     return [];

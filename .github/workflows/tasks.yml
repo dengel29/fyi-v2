@@ -30,7 +30,7 @@ jobs:
       env:
         AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
       run: |
-        curl "https://api.airtable.com/v0/appYYsUDUnkHDLuA5/Table%201?maxRecords=10&view=Grid%20view" -H "Authorization: Bearer ${AIRTABLE_KEY}" > articles.json
+        curl "https://api.airtable.com/v0/appYYsUDUnkHDLuA5/Table%201?view=Grid%20view" -H "Authorization: Bearer ${AIRTABLE_KEY}" > articles.json
     - name: Move to output folder
       run: |
         yes| cp -rf articles.json ./workflow-output/ 
