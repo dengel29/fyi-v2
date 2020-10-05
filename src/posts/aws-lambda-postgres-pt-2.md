@@ -138,7 +138,7 @@ sls offline -s prod
 ```
 Visit http://localhost:3000/prod/test (don’t forget that when you test your endpoints it will add the stage before the endpoint), and you should see your production database host. 
 
-If you’re still getting connection timeouts, make sure your credentials are correct and that the security is set up to receive inbound traffic as described in the earlier step.
+If you’re still getting connection timeouts, make sure your credentials are correct and that the Security Group is set up to receive inbound traffic as described in the earlier step.
 
 ## Configuring VPC details
 We have a few final things to configure before we deploy our Lambda. First, we want to tell the Lambda which security groups, subnets, and region to be associated with. These can be found on the page for the RDS database we set up. Simply grab any of the two subnets in the list and copy- paste their identifiers. Same with the security group. We’ll also add these values under the `provider` section:
@@ -172,8 +172,7 @@ If you’ve installed Postgres before, you should see some file paths returned f
 
 Your folder structure should now look like this:
 
-![The final file structure should look like this](/images/aws-pg/aws-pg-file-structure-2)
-[image:4F094983-9658-467E-9D06-6A08A8B4F8A0-7995-0001BA4EE38801B7/Screen Shot 2020-10-05 at 4.50.08 PM.png]
+![The final file structure should look like this](/images/aws-pg/aws-pg-file-structure-2.png)
 
 Next you’ll add some more configuration to your `serverless.yml`  which will instruct Serverless to upload the layer to AWS, and have your Lambda utilize the layer. By doing this little configuration, Serverless takes care of most of the AWS configuration for  you. 
 
