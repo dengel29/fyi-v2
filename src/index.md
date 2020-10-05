@@ -1,5 +1,5 @@
 ---
-title: 'Hello, world'
+title: "I'm Dan Engel"
 layout: 'layouts/home.html'
 pagination:
   data: collections.blog

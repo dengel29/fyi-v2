@@ -2,7 +2,7 @@
 title: "Dan's Blog"
 layout: 'layouts/home.html'
 list: true
-postHeader: "Some more thoughts, coding an otherwise"
+postHeader: "Writing about coding"
 pagination:
   data: collections.blog
   size: 5

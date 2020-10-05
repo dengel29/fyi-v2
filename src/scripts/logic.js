@@ -8,7 +8,7 @@ let sketch = function (p) {
   let cohesionSlider, alignmentSlider, separationSlider;
   p.setup = function () {
     d = '#f3fffd'
-    CANVAS = p.createCanvas(640, 360).mouseMoved(movePredator);;
+    CANVAS = p.createCanvas(640, 360).mouseMoved(movePredator).touchMoved(movePredator);
     // alignmentSlider = p.createSlider(0, 5, 1, 0.1);
     // cohesionSlider = p.createSlider(0, 5, 1, 0.1);
     // separationSlider = p.createSlider(0, 5, 1, 0.1);
@@ -252,6 +252,7 @@ let sketch = function (p) {
       y = p.pmouseY
       predator = new Predator(x, y)
     }
+
   }
 
   p.draw = function () {

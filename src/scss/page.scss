@@ -28,6 +28,7 @@
 
 .page-header {
   display:flex;
+  flex-direction:column;
   justify-content: left;
   padding-left:get-size('200');
   background-color: get-color('light');
@@ -43,6 +44,16 @@
   box-shadow: 2px 1px 0px -1px get-color('secondary');
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
+
+  h5 {
+    color: get-color('dark');
+    padding-left: get-size('300');
+    margin-top: 0em;
+    padding-top: 0em;
+    padding-bottom: 2.5em;
+    width:60%;
+    height: 70%;
+  }
 }
 
 ul {
@@ -53,7 +64,6 @@ ul {
   color: get-color('dark');
   padding-left: get-size('300');
   padding-top: 0.5em;
-  padding-bottom: 2.5em;
   width:60%;
   height: 70%;
 }
@@ -108,6 +118,20 @@ pre {
 
 }
 
-pre code {
-  color:get-color('light')
+
+pre > * {
+  color:get-color('light');
+  &::selection {
+    color: get-color('dark');
+    background-color: get-color('light')
+  }
 }
+
+p > code, li > code {
+  color: lighten(get-color('dark'), 10%);
+  &::selection {
+    color: get-color('light');
+    background-color: get-color('dark')
+  }
+}
+  

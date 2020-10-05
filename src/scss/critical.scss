@@ -81,6 +81,11 @@ h4 {
   // background: rgba(get-color('dark-shade'), 0.99);
 }
 
+code::selection {
+  color: get-color('dark');
+  background-color: get-color('light')
+}
+
 // Scrollbar styles
 ::-webkit-scrollbar {
   height: 1rem;

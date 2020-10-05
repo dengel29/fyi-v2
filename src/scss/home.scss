@@ -24,6 +24,7 @@ article > * {
 #sketch-container > canvas {
   width: 100% !important;
   height: 100% !important;
+  touch-action: none;
   cursor: grabbing;
 }
 
