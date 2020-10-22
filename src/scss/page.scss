@@ -74,12 +74,10 @@ ul {
     cursor: pointer;
     margin-bottom:1em;
   }
+  
   blockquote {
-
-    @include media-query('md') {
-      width:28ch;
-      margin-left: 0.8em;
-    }
+    border-left: 3px solid get-color('primary');
+    padding-left:0.4em;
     @include media-query('lg') {
       width:48ch;
       margin-left: 1em;
@@ -88,13 +86,11 @@ ul {
 
   p {
     margin-bottom: revert;
-    
   }
 
   @include media-query('md') {
-    font-size: get-size('500');
-    margin-right:1em;
-    width: 32ch
+    font-size: 0.9em;
+    width: 26ch
   }
 
   @include media-query('lg') {
@@ -127,11 +123,14 @@ pre > * {
   }
 }
 
-p > code, li > code {
+p > code, li > code, a code {
   color: lighten(get-color('dark'), 10%);
   &::selection {
     color: get-color('light');
     background-color: get-color('dark')
   }
+  background-color: lightgrey;
+  border-radius: 4px;
+  padding: 0.1em
 }
   
