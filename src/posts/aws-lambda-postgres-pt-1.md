@@ -3,23 +3,31 @@ title: 'Part 1 Connecting AWS Lambda To A Postgres DB'
 date: '2020-10-05'
 ---
 
-##### It’s not a piece of cake to work with a relational database in a serverless app, unless you know just what to do. Apparently, it’s also not completely recommended, based on what I’ve read (I read [this](https://hasura.io/blog/building-stateful-apps-using-serverless-postgres-and-hasura/)). Nevertheless, I wanted to try my hand at this, because I think it’s a safe bet to be bullish on technologies as old as SQL. Plus, I don’t like to jam too many new things into a project idea - part of the idea of starting small. As it often goes, I failed many times and started over just as many before I finally achieved my goal: read and write to a Postgres database in an AWS Lambda. 
+##### I had a simple desire: connect an AWS Lambda to a Postgres relational database, even though it's not completely recommended, based on what I’ve read (I read [this](https://hasura.io/blog/building-stateful-apps-using-serverless-postgres-and-hasura/)). I was motivated to try this because I could imagine a scenario where I wanted to integrate a serverless function into an alread-existing app that utilized a Postgres DB. As things often go, I failed many times and started over just as many before I finally achieved my goal: read and write to a Postgres database in an AWS Lambda. 
 ---
-# Part 1: Get it running locally
 <details>
-<summary>An aside: There are so many options for creating a serverless function. </summary>
+<summary>An aside: There are so many options for creating a serverless function, and so many of my failed attempts were at finding the one "framework" that worked for me. Long story short, I picked Serverless Framework. Skip this section if you don't want to read about all the options.</summary>
 I won’t walk through all the failures, but I do want to briefly note that the serverless ecosystem is super daunting in terms of how many choices there are! Firstly there are the functions from all the main providers, Azure, GCP and AWS which all operate largely the same way. Then there’s serverless “solutions” like Netlify functions and Begin. In AWS-land, there’s not only Lambda but there’s also SAM (serverless application model) which claims to simplify things and at this point I’ve hit analysis paralysis and don’t know what’s good for me. I also ventured down the Ruby rabbit hole, which has an entire serverless framework called Jets, another serverless solution called Lamby and I just ran into problems with all of them.
 
 I don’t mean to shit on these tools and solutions – I view these failures as failures of my own, as a result of working with a slightly too-abstracted solution, that I really didn’t know what they were doing for me, and that I couldn’t fix the bugs because, well, I didn’t know how serverless apps worked in the first place. 
 
 Then I went to the opposite extreme and went straight into using the plain-ass AWS CLI to make the function and that had so much boilerplate writing that I understood why there were so many tools and solutions out there to remove some of that tedious configuration from the process. I found the happy medium in the Serverless Framework, and I finally understand why it has a following. Lots of articles, lots of examples, plugins, and the community seems to have reached that critical mass where there are enough Stack Overflow answers to get you through most of your problems. And it got me through my problems. For what it’s worth, if you’re afraid of using a third-party solution, I’ve also seen AWS Amplify as another viable solution. End of aside, let's get cracking.
 </details>
----
-## Setting up a Project with Serverless Framework
 
+# Part 0: Pre-requesites
+
+Serverless functions are, at their core, extremely simple. Configuration ends up being the biggest bugger. Still, there are a few things I assume in this tutorial:
+
+* Familiarity with Javascript, Node, npm. All installed
+* An AWS account. [Sign up for one][console.aws.amazon.com/] if you don't have it.
+* 
+
+# Part 1: Setting up a Project with Serverless Framework
+
+---
 ### Give Serverless Framework your AWS Credentials
 
-A lot of the benefit of Serverless Framework is that it creates and deploys a lot of AWS resources on your behalf, and to do that it needs access to some of your credentials. For that, I'll [defer to the Serverless blog](https://www.serverless.com/framework/docs/providers/aws/guide/credentials/) to describe how to provide Serverless with those capabilities.
+If you already have worked with Serverless and AWS Lambda this may already be configured. If not, let me say that much of the benefit of Serverless Framework is that it creates and deploys a lot of AWS resources on your behalf. To do, though, that it needs be able to access those resources, so there is some initial configuration that needs to take place. For that, insead of re-write their docs [I'll point you to the Serverless blog](https://www.serverless.com/framework/docs/providers/aws/guide/credentials/) which describes how to provide Serverless with those capabilities. It may feel like a lot of configuration, but once it's done we don't have to touch it again. 
 
 ### Scaffolding the Project
 
@@ -33,11 +41,11 @@ To scaffold a Serverless project run in your Terminal:
 $ serverless create —template aws-nodejs —path sls-new-project
 ``` 
 
-This will create a folder called `sls-new-project` that contains just two files, `handler.js` which has your function’s logic, and `serverless.yaml` which contains all the configuration. 
+This will create a folder called `sls-new-project` that contains just two files, `handler.js` which has your function’s logic, and `serverless.yaml` which contains all the configuration. Very minimal to start.
 
 ### Setting up a local database and Sequelize
 
-I wanted to use Postgres and an object-relational mapper (ORM) called Sequelize. So let's install those dependencies into our project via npm.
+We want to use Postgres and an object-relational mapper (ORM) called Sequelize. So let's install those dependencies into our project via npm.
 
 First `npm init` to create a `package.json` in our project. Then start installing some dependencies: 
 ```
@@ -56,9 +64,9 @@ If you read the contents of the just-created `config/config.json` you’ll see i
 * Also, change the `username` value under `development` to the name of your root user of your device. 
 * Also, please change the name of the database to something like `sls-starter` or something related to the name of your project.
 
- Remember, this config *only* tells the CLI how to connect to the database, so we also have to tell our application to connect to the database. We’ll do this in a separate file, in the next step.
+Remember, this config *only* tells the CLI how to access the database, so we also have to tell our application to access the database. We’ll do this in a separate file, in the next step.
 
-We don’t have any models yet, but we’ll start creating them soon. But last step before that we have to create the local database: do so with the command `npx sequelize-cli db:create`. 
+We don’t have any models yet, but we’ll start creating them soon. But last step before that we have to *create* the local database: do so with the command `npx sequelize-cli db:create`. 
 
 If it fails, you probably missed changing something in the `config/config.json` file. Follow the steps above to make sure the user is the root user on your device, the database name is unique, and you’re using the correct type of database `postgres`. For now you only need to change those values under `development`.
 
@@ -136,7 +144,7 @@ Delete everything that the `serverless create` command created earlier in this f
 We’re going to be using http triggers for the functions, so we also want to install the following packages:
 
 ```
-npm install —save serverless-http
+npm install —-save serverless-http
 npm install --save express
 ``` 
 
@@ -146,7 +154,6 @@ Then require them in our `handler.js`
 'use strict';
 const db = require('./connection.js');
 const serverless = require('serverless-http');
-const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 ```
@@ -215,5 +222,11 @@ Now it’s time to check if it’s working.
 
 A smoke test just a simple test to see if things are working as expected. The logic of our only function runs Sequelize’s `db.authenticate()` function and prints whether it successfully connects or not.
 
-To test, we’ll run `sls offline` which now starts a local mock of our serverless function. We can visit http://localhost:3000/dev/test to see if our function is successful. And if everything was followed correctly, you should see “Connection successful” or whatever your success message in the function was in the browser. However, if you were to run `sls deploy` and try this in production, it would fail because 1) we don’t have a production database and 2) AWS Lambda can’t speak Postgres without a little extra configuration. That’s what we’ll do in the [next post](/blog/part-2-connecting-aws-lambda-to-a-postgres-db/), as well as separating our environments.
+To test, we’ll run `sls offline` which now starts a local mock of our serverless function. We can visit http://localhost:3000/dev/test to see if our function is successful. And if everything was followed correctly, you should see “Connection successful” or whatever your success message in the function was in the browser. 
+
+But, if you were to run `sls deploy` at this point and try this in production, it would fail because 
+1. we don’t have a production database and,
+2. AWS Lambda can’t speak Postgres without some more extra configuration. 
+
+That’s what we’ll do in the [next post](/blog/part-2-connecting-aws-lambda-to-a-postgres-db/), as well as separating our environments.
 
