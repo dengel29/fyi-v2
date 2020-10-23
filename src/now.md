@@ -9,7 +9,7 @@ highlight: "secondary"
 ---
 I'm living in Taiwan
 
-Finished writing a pair of blog posts about getting an AWS Lambda connected to a Postgres database. You can read them [here](/blog/part-1-connecting-aws-lambda-with-a-postgres-db/).
+Finished writing a pair of blog posts about getting an AWS Lambda connected to a Postgres database. You can read them [here](/blog/part-1-connecting-aws-lambda-to-a-postgres-db/).
 
 * Listening to: [John Carrol Kirby](https://www.youtube.com/watch?v=0F__oGUUWHg)
 ---
