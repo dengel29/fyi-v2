@@ -1,11 +1,19 @@
 class Grain {
   // TO DO: make a Grain a full class object composed of the falling logic and coloring
   constructor(pixelStart, x, y, width) {
+    let rand = Math.round(Math.random(0, 3))
     this.pixelStart = pixelStart;
     this.x = x;
     this.y = y;
     this.nextPixel = pixelStart + width * 4
-    this.color = [31, 86, 122];
+    if (rand == 0) {
+      this.color = [31, 86, 122];
+    } else if (rand == 1) {
+      this.color = [217, 129, 197];
+    } else {
+      this.color = [102, 195, 209]
+    }
+
     this.atRest = false;
   }
 

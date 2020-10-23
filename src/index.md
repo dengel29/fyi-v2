@@ -8,6 +8,6 @@ pagination:
 postHeader: "It's hard to keep up with a blog"
 highlight: "primary"
 accentHighlight: "secondary"
-p5: true
-p5scripts: [/scripts/boid.js, scripts/logic.js]
+imgSrc: ../../images/selfie.jpg
+imgAlt: 'Me, on a roof in Taipei where I currently live. Wearing a mask'
 ---

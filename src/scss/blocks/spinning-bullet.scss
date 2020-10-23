@@ -1,0 +1,208 @@
+li path:nth-child(1) {
+  z-index:5;
+  height: 15%;
+  width: 15%;
+  animation: grow 1s alternate;
+  animation-fill-mode: forwards;
+  transform-origin: center center;
+  fill: get-color('primary');
+  transform: scale(0.8, 0.8)
+}
+
+.dasher-BL {
+  animation: dashInBL 0.5s alternate;
+  animation-fill-mode: forwards;
+  transform-origin: 50% 50%
+}
+
+.dasher-TR {
+  z-index: 0;
+  stroke-width: 1;
+  animation: dashInTR 0.5s alternate;
+  animation-fill-mode: forwards;
+    transform-origin: 50% 50%
+}
+
+.dasher-TL {
+    z-index: 0;
+  animation: dashInTL 0.5s alternate;
+  animation-fill-mode: forwards;
+    transform-origin: 50% 50%
+}
+
+.dasher-BR {
+    z-index: 0;
+ animation: dashInBR 0.5s alternate;
+  animation-fill-mode: forwards;
+    transform-origin: 50% 50%
+}
+
+li path {
+  stroke-linecap: round;
+  stroke-dasharray: 12;
+  stroke-dashoffset: 96;
+  stroke-width: 3;
+  // transition-timing-function: cubic-bezier(.65, .45, .65, .35)
+}
+ul.post-list  li:hover {
+  // animation-play-state: running;
+  path:nth-child(1) {
+    fill: get-color('primary');
+    animation: shrink 0.4s alternate;
+    animation-iteration-count:1;
+    animation-fill-mode: forwards;
+    animation-delay: 0s, 5s;
+  }
+  .dasher-BL {
+    animation: dashOutBL, strobe;
+    animation-duration:0.6s, 6s;
+    animation-iteration-count: 1, infinite;
+    animation-direction: alternate, alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 0s, 5s;
+    fill: get-color('secondary')
+  }
+   .dasher-TR {
+    animation: dashOutTR, strobe;
+    animation-duration:0.6s, 6s;
+    animation-iteration-count: 1, infinite;
+    animation-direction: alternate, alternate-reverse;
+    animation-fill-mode: forwards;    
+     animation-delay: 0s, 3.5s;
+     fill: get-color('secondary')
+  }
+   .dasher-TL {
+    animation: dashOutTL, strobe;
+    animation-duration:0.6s, 6s;
+    animation-iteration-count: 1, infinite;
+    animation-direction: alternate, alternate-reverse;
+    animation-fill-mode: forwards;
+    animation-delay: 0s, 3.5s;
+    fill: get-color('secondary')
+  }
+  .dasher-BR {
+    animation: dashOutBR, strobe;
+    animation-duration:0.6s, 6s;
+    animation-iteration-count: 1, infinite;
+    animation-direction: alternate, alternate;
+    animation-fill-mode: forwards;
+    animation-delay: 0s, 5s;
+    fill: get-color('secondary')
+  }
+}
+
+@keyframes strobe {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes dashOutBR {
+   from {
+    transfrom: translate(0px, 0px) scale(0.1, 0.1) rotate(0deg);
+    transform-origin: 50% 50%
+  }
+  to {
+    transform: translate(7px, 7px) scale(0.4, 0.4) rotate(360deg);
+     transform-origin: 0% 0%
+  }
+}
+
+@keyframes dashInBR {
+   from {
+    transform: translate(7px, 7px) scale(0.4, 0.4) rotate(360deg);
+    transform-origin: 0% 0%
+  }
+  to {
+    transform: translate(0px, 0px) scale(0.4, 0.4) rotate(0deg);
+  }
+}
+
+@keyframes dashOutTR {
+   from {
+    transfrom: translate(0px, 0px) scale(0.4, 0.4) rotate(0deg);
+    stroke-width:0;
+  }
+  to {
+    transform: translate(7px, -7px) scale(0.4, 0.4) rotate(360deg);
+    transform-origin: 0% 100%;
+    stroke-width:3;
+  }
+}
+
+@keyframes dashInTR {
+    from {
+    transform: translate(7px, -14px)  scale(0.1, 0.1) rotate(360deg);
+    transform-origin: 0% 100%;
+    stroke-width:3;
+  }
+  to {
+    transform: translate(0px, 0px) scale(0.4, 0.4) rotate(0deg);
+    transform-origin: 50% 5%;
+    stroke-width:0;
+  }
+}
+
+@keyframes dashOutTL {
+   from {
+transfrom: translate(0px, 0px) scale(0.4, 0.4) rotate(0deg)
+  }
+  to {
+    transform: translate(-7px, -7px) scale(0.4, 0.4) rotate(360deg);
+  transform-origin: 100% 100%
+  }
+}
+
+@keyframes dashInTL {
+   from {
+    transform: translate(-7px, -7px) scale(0.4, 0.4) rotate(360deg);
+      transform-origin: 100% 100%
+  }
+  to {
+    transform: translate(0px, 0px) scale(0.4, 0.4)  rotate(0deg);
+     transform-origin: 50% 50%
+  }
+}
+
+
+
+@keyframes dashOutBL {
+   from {
+transfrom: translate(0px, 0px) scale(0.4, 0.4)  rotate(0deg);
+fill: get-color('primary');
+  }
+  to {
+    transform: translate(-7px, 7px) scale(0.4, 0.4) rotate(360deg);
+    transform-origin: 100% 0%;
+    fill: get-color('secondary');
+    
+  }
+}
+
+@keyframes dashInBL {
+    from {
+    transform: translate(-7px, 7px) scale(0.4, 0.4) rotate(360deg);
+    transform-origin: 100% 0%;
+  }
+  to {
+    transform: translate(0px, 0px) scale(0.4, 0.4)  rotate(0deg);
+  }
+}
+
+@keyframes shrink {
+  from {
+    transform:scale(0.8, 0.8);
+    }
+  to {
+    transform:scale(0.0, 0.0);
+  }
+}
+
+@keyframes grow {
+  from {
+  transform:scale(0.0, 0.0);
+  }
+  to {
+    transform:scale(0.8, 0.8);
+  }
+}

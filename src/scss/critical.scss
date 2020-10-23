@@ -49,7 +49,8 @@ body {
 
 a:not([class]) {
   color: currentColor;
-  text-decoration-color: get-color('quinary');
+  text-decoration-color: get-color('primary');
+  text-decoration-thickness: 2px;
 }
 
 :focus {
@@ -111,6 +112,7 @@ code::selection {
 @import './blocks/blobs';
 @import './blocks/home-container';
 @import './blocks/post-list';
+@import './blocks/spinning-bullet';
 
 //UTILITIES
 @import './utilities/wrapper'

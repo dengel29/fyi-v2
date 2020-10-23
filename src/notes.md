@@ -12,6 +12,7 @@ paginationNextText: 'Older posts'
 paginationAnchor: '#post-list'
 highlight: "quinary"
 accentHighlight: "quaternary"
-imgSrc: ../../images/shenzhen-flare.jpg
-imgAlt: 'An art installation in Shenzhen, a small tuktuk or Chinese three-wheel car with neon lights bursting out of it'
+p5: true
+p5scripts: [scripts/boid.js, /scripts/logic.js]
+sketchAlt: Boids flocking simulation, inspired Coding Train, with a twist of touch interaction
 ---

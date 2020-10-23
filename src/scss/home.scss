@@ -28,9 +28,12 @@ article > * {
   cursor: grabbing;
 }
 
-.visual p {
-  font-size: 0.6em;
-  color: get-color('dark')
+.visual {
+  
+  p {
+    font-size: 0.6em;
+    color: get-color('dark')
+  }
 }
 
 .readings {

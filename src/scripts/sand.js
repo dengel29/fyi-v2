@@ -3,7 +3,7 @@ let sketch = function (p) {
   const empty = 255
   SWITCH = 0
   p.setup = function () {
-    CANVAS = p.createCanvas(320, 600).mouseMoved(handDropSand).touchMoved(dumpSand);
+    CANVAS = p.createCanvas(320, 600).mouseMoved(dumpSand).touchMoved(dumpSand).mousePressed(dumpSand);
     p.pixelDensity(1);
     CANVAS.background(255);
     p.frameRate(30)
@@ -23,6 +23,7 @@ let sketch = function (p) {
       colorPixel(grain)
       grains.push(grain)
     }
+    return false
   }
 
   p.draw = function () {

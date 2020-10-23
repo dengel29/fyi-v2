@@ -15,8 +15,9 @@
       <div class="visual">
         {% if p5 %}
           <div id="sketch-container"></div>
+          <p>{{sketchAlt}}</p>
         {% else  %}
-          <img src="{{imgSrc}}" alt="{{imgAlt}}">   
+          <img style="border-radius: 4px;" src="{{imgSrc}}" alt="{{imgAlt}}">   
           <p>{{imgAlt}}</p> 
         {% endif %}
       </div>
