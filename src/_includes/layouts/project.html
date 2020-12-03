@@ -1,0 +1,18 @@
+{% extends "layouts/base.html" %}
+{% set pageCriticalStyles = ['css/page.css', 'css/project.css'] %}
+{% set posts = helpers.getSiblingContent(collections.projects, page) %}
+{% block content %}
+
+  <article class="page-wrapper">
+    <div class="project-header">
+      <img src="{{heroImage}}" alt="">
+      <h3 class="page-headline">{{title}}</h3>
+      <h5>{{date}}</h5>
+    </div>
+    
+    <div class="[ page-content gap-top-700 ]">
+      {{ content | safe }}
+    </div>
+  </article>
+  {% include "partials/more-posts.html" %}
+{% endblock %}

@@ -1,1 +1,3 @@
-{"html.validate.styles": false}
+{"html.validate.styles": false,
+  "editor.cursorSmoothCaretAnimation": true,
+  "emmet.excludeLanguages": ["vue"]}

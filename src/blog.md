@@ -11,6 +11,7 @@ permalink: 'blog{% if pagination.pageNumber > 0 %}/page/{{ pagination.pageNumber
 paginationPrevText: 'Newer posts'
 paginationNextText: 'Older posts'
 paginationAnchor: '#post-list'
+img: true
 imgSrc: ../../images/bb-reflection.jpg
 imgAlt: 'A profile of my dog, Baby, looking out of my old apartment window in Chengdu, Sichuan'
 highlight: "primary"

@@ -12,16 +12,18 @@
           {{content | safe}}
         </article>
       {% endif %}
+      {% if p5 %}
       <div class="visual">
-        {% if p5 %}
           <div id="sketch-container"></div>
           <p>{{sketchAlt}}</p>
-        {% else  %}
-          <img style="border-radius: 4px;" src="{{imgSrc}}" alt="{{imgAlt}}">   
-          <p>{{imgAlt}}</p> 
-        {% endif %}
+      </div>  
+      {% endif %}
+      {% if img %}
+      <div class="visual">
+        <img style="border-radius: 4px;" src="{{imgSrc}}" alt="{{imgAlt}}">   
+        <p>{{imgAlt}}</p> 
       </div>
-      </div>
+      {% endif %}
     </div>
   </article>
   {% if list %}

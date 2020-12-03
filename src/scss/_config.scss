@@ -35,7 +35,8 @@ $style-config: (
     'property': 'margin-top',
   ),
   'breakpoints': (
-    'md': '(max-width: 37em)',
+    'sm': '(max-width: 37em)',
+    'md': '(max-width: 61em)',
     'lg': '(min-width: 62em)',
   ),
 )
