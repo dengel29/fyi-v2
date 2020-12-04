@@ -22,22 +22,10 @@
       {% endfor %}
     {% endif %}
   </head>
-  <body>
-    <div class="site-wrap">
-      {% include "partials/site-head.html" %}
-      
-      <main tabindex="-1" id="main-content" class="wrapper">
-        {% block content %}{% endblock %}
-      </main>
   
-    </div>
-  {% if p5 %}
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
-    {% for script in p5scripts %}
-      <script src="{{script}}"></script>
-    {% endfor %}
-  {% endif %}
-
+  <body> 
+    {% include "partials/site-head.html" %}
+    {% block content %}{% endblock %}
   </body>
 </html>
 

@@ -10,10 +10,10 @@ $highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary
 }
 .project-list {
   display:grid;
-  column-gap: 2%;
+  column-gap: 2.5em;
   row-gap: 2em;
-  width: 95vw;
-  grid-template-columns: repeat(auto-fill, minmax(18em, 20em));
+  width: 88vw;
+  grid-template-columns: repeat(auto-fill, minmax(18em, 22em));
 
   @include media-query('md') {
     place-content:center;
@@ -36,7 +36,7 @@ $highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary
     padding:3px;
     box-shadow:1px 1px 0px pink;
     bottom: -8%; 
-    left: 50%;
+    right: -1em;
     background-color: #c9c8c8;
     max-width:20ch;
     text-align:right;

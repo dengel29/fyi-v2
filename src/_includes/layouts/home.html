@@ -1,12 +1,17 @@
 {% extends "layouts/base.html" %} 
 {% set pageCriticalStyles = ['css/home.css'] %}
 {% block content %}
+
+  
+<div class="site-wrap">
+<main tabindex="-1" id="main-content" class="wrapper">
+
   <article class="wrapper" data-highlight="{{highlight}}" data-accent="{{accentHighlight}}">
     <div class="home-container">
       <h1 class="home-headline">{{postHeader}}</h1>
 
       {% if list %}
-        {% include "partials/post-list.html" %} 
+        {% include "partials/post-list.html" %}  
       {% else %}
         <article>
           {{content | safe}}
@@ -31,5 +36,12 @@
     {% include "partials/readings.html" %}
   {% endif %}
   {% include "partials/site-foot.html" %}
-
+</main>
+</div>
+{% if p5 %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+{% for script in p5scripts %}
+<script src="{{script}}"></script>
+{% endfor %}
+{% endif %}
 {% endblock %}
