@@ -14,6 +14,12 @@ module.exports = config => {
   config.addCollection('notes', collection => {
     return [...collection.getFilteredByGlob('./src/notes/*.md')].reverse();
   })
+  config.addCollection('projects', collection => {
+    let projects = [...collection.getFilteredByGlob('./src/projects/*.md')];
+    projects.sort((a, b) => a.data.order - b.data.order);
+    return projects
+  })
+
 
   // Only minify HTML if we are in production because it slows builds _right_ down
   if (isProduction) {

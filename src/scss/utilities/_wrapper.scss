@@ -8,13 +8,9 @@ $highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary
 
  .wrapper {
   max-width: 70rem;
-  padding: 0 get-size('500');
-  margin-right: auto;
+  padding: 0 get-size('400');
+  margin: 0 auto;
   position: relative;
-  margin-left:4em;
-  @include media-query('md') {
-    margin-left:1em;
-  }
 }
 
 .world-wrap {
@@ -23,24 +19,4 @@ $highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary
   color:get-color('dark');
   border-radius: 5px;
   margin-bottom: 10px;
-  // @each $highlight in $highlights {
-  //   &[data-highlight='#{$highlight}'] {
-  //     $page-theme-primary: get-color($highlight); 
-  //     // border: 5px solid $page-theme-primary;
-  //   }
-  //   &[data-accent='#{$highlight}']{
-  //     &::before {
-  //       content: " ";
-  //       position: absolute;
-  //       z-index: -1;
-  //       top: 2px;
-  //       left: 2px;
-  //       right: 2px;
-  //       bottom: 2px;
-  //       border-radius: 3px ;
-  //       // border: 5px solid get-color($highlight)
-        
-  //   }
-  // } 
-  // }
 }

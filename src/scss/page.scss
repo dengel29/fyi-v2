@@ -22,8 +22,7 @@
 
   @include media-query('lg') {
     margin-left: 5em;
-  }
-  
+  } 
 }
 
 .page-header {
@@ -69,6 +68,8 @@ ul {
 }
 
 .page-content {
+  font-size: get-size('500');
+    width: 64ch;
   margin-top: get-size('500');
   summary {
     cursor: pointer;
@@ -86,17 +87,27 @@ ul {
 
   p {
     margin-bottom: revert;
+    height:max-content;
+  }
+
+  h2 {
+    margin-bottom:0.7em;
+  }
+
+  h3 {
+    margin-top:0.4em;
+    font-weight: 400
+  }
+
+  @include media-query('sm') {
+    font-size: 1em;
+    width: 24ch
   }
 
   @include media-query('md') {
-    font-size: 0.9em;
-    width: 26ch
+    font-size: 1em;
+    width: 85%
   }
-
-  @include media-query('lg') {
-    font-size: get-size('500');
-    width: 64ch
-   }
 }
 
 pre {

@@ -1,5 +1,22 @@
-  <ul class="post-list">
+{% if posts %}
+<ul class="post-list">
     {% for item in posts %}
       <li> <a href="{{item.url}}"> {% include "partials/bullet.svg" %} {{ item.data.title }} </a></li>
     {% endfor %}  
-  </ul>
+</ul>
+{% endif %}
+
+{% if projects %}
+<div class="post-list project-list">
+{% for item in projects %}
+  <div class="project-card"> 
+    <div class="project-card__details">
+      <h4 >{{ item.data.title }}</h3>
+      <p style="">{{item.data.projectDescription}}</p>
+    </div>
+    
+    <a href="{{item.url}}"> <img src="{{item.data.indexImage}}" height="70%" alt="{{item.data.indexImageAlt}}" style=";"> </a></div>
+{% endfor %} 
+</ul>
+{% endif %}  
+

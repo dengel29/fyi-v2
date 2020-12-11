@@ -1,0 +1,44 @@
+{% extends "layouts/base.html" %} 
+{% set pageCriticalStyles = ['css/page.css', 'css/project.css'] %}
+{% set posts = helpers.getSiblingContent(collections.projects, page) %}
+{% block content %}
+
+<article class="page-wrapper">
+  <div class="project-header" style="background-image: url({{heroImage}}), linear-gradient(90deg, #32648530, #5351bb1d)">
+    <div class="page-headline">
+      <h1 >{{title}}</h1>
+    </div>
+  </div>
+  <div class="project-summary__wrapper">
+    <div class="project-role"><h2>{{role}}</h2></div>
+    <div class="project-duration"><h3>{{startDate}} to {{endDate}}</h3></div>
+    <div class="project-skills">
+      <h4 style="">Skills</h4>
+      {% for item in skills %}
+      <p>
+        {{item}} 
+      </p>
+      {% endfor %}
+    </div>
+    <div class="project-tech">
+      <h4>Tech</h4>
+      {% for item in tech %}
+      <p>
+        {{item}} 
+      </p>
+      {% endfor %}
+    </div>
+    <div class="company-brief">
+      {{projectBrief}}
+    </div>
+  </div>
+  <div class="page-content gap-top-700 project-content" >
+    {% if inActionVideo %}
+      <video src="{{inActionVideo}}" loop autoplay style="height:18em; box-shadow: 2px 4px 3px black; margin-top: 2em; margin-bottom: 1em;"></video>
+    {% endif %}
+    {{ content | safe }}
+  </div>
+</article>
+
+  {% include "partials/more-posts.html" %}
+{% endblock %}

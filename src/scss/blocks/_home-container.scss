@@ -32,19 +32,21 @@
 }
 
 .home-headline {
-  max-width: 64ch;
+  width:100%;
   margin-bottom: 0.4em;
   grid-area: hl;
-  // position:absolute;
-  // justify-self: center;
+  @include media-query('md') {
+    text-align:center;
+    max-width: 100%;
+  };
+  @include media-query('sm') {
+    text-align:center;
+    max-width: 100%
+  }
 }
 
 .visual {
   max-width: 15em;
   justify-self:center;
-  // min-height:40%;
   grid-area: kv
-}
-
-.visual::after {
 }

@@ -17,6 +17,12 @@
       "url": "/now/",
       "title": "What's going on now",
       "highlight": "secondary"
+    },
+    {
+      "text": "Projects",
+      "url": "/projects/",
+      "title": "Things I've Done",
+      "highlight": "primary"
     }
   ]
 }

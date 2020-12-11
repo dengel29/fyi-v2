@@ -1,9 +1,10 @@
 @import 'config';
 @import './functions/get-color';
 @import './functions/get-size';
+@import 'project';
 
 
-article > * {
+article > *:not(h1) {
   margin: revert;
 }
 
@@ -28,8 +29,7 @@ article > * {
   cursor: grabbing;
 }
 
-.visual {
-  
+.visual { 
   p {
     font-size: 0.6em;
     color: get-color('dark')

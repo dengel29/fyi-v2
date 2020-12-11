@@ -1,4 +1,4 @@
-{% extends "layouts/base.html" %} 
+{% extends "layouts/home-base.html" %} 
 {% set pageCriticalStyles = ['css/home.css'] %}
 {% block content %}
   <article class="wrapper" data-highlight="{{highlight}}" data-accent="{{accentHighlight}}">
@@ -6,28 +6,34 @@
       <h1 class="home-headline">{{postHeader}}</h1>
 
       {% if list %}
-        {% include "partials/post-list.html" %} 
+        {% include "partials/post-list.html" %}  
       {% else %}
         <article>
           {{content | safe}}
         </article>
       {% endif %}
+      {% if p5 %}
       <div class="visual">
-        {% if p5 %}
           <div id="sketch-container"></div>
           <p>{{sketchAlt}}</p>
-        {% else  %}
-          <img style="border-radius: 4px;" src="{{imgSrc}}" alt="{{imgAlt}}">   
-          <p>{{imgAlt}}</p> 
-        {% endif %}
+      </div>  
+      {% endif %}
+      {% if img %}
+      <div class="visual">
+        <img style="border-radius: 4px;" src="{{imgSrc}}" alt="{{imgAlt}}">   
+        <p>{{imgAlt}}</p> 
       </div>
-      </div>
+      {% endif %}
     </div>
   </article>
   {% if list %}
   {% else %}
     {% include "partials/readings.html" %}
   {% endif %}
-  {% include "partials/site-foot.html" %}
-
+{% if p5 %}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+{% for script in p5scripts %}
+<script src="{{script}}"></script>
+{% endfor %}
+{% endif %}
 {% endblock %}
