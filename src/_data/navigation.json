@@ -19,10 +19,10 @@
       "highlight": "secondary"
     },
     {
-      "text": "Projcts",
+      "text": "Projects",
       "url": "/projects/",
-      "title": "Tings I've Done",
-      "highlight": "secondary"
+      "title": "Things I've Done",
+      "highlight": "primary"
     }
   ]
 }
