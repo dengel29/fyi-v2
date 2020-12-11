@@ -1,18 +1,20 @@
-{% extends "layouts/base.html" %}
+{% extends "layouts/home-base.html" %}
 {% set pageCriticalStyles = ['css/page.css'] %}
 {% set posts = helpers.getSiblingContent(collections.blog, page) %}
 {% block content %}
+<div>
 
-  <article class="page-wrapper">
+  <article class="page-wrapper"">
     <div class="page-header">
       <h3 class="page-headline">{{title}}</h3>
       <h5>{{date}}</h5>
     </div>
-    
+  
     <div class="[ page-content gap-top-700 ]">
-      <img src="{{examplePic}}" alt="">
+      <img src="{{examplePic}}" alt=""/>
       {{ content | safe }}
     </div>
   </article>
+</div>
   {% include "partials/more-posts.html" %}
 {% endblock %}

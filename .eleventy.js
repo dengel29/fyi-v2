@@ -16,7 +16,7 @@ module.exports = config => {
   })
   config.addCollection('projects', collection => {
     let projects = [...collection.getFilteredByGlob('./src/projects/*.md')];
-    projects.sort((a, b) => a.order - b.order).reverse();
+    projects.sort((a, b) => a.data.order - b.data.order);
     return projects
   })
 

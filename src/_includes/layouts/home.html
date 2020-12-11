@@ -1,11 +1,6 @@
-{% extends "layouts/base.html" %} 
+{% extends "layouts/home-base.html" %} 
 {% set pageCriticalStyles = ['css/home.css'] %}
 {% block content %}
-
-  
-<div class="site-wrap">
-<main tabindex="-1" id="main-content" class="wrapper">
-
   <article class="wrapper" data-highlight="{{highlight}}" data-accent="{{accentHighlight}}">
     <div class="home-container">
       <h1 class="home-headline">{{postHeader}}</h1>
@@ -35,9 +30,6 @@
   {% else %}
     {% include "partials/readings.html" %}
   {% endif %}
-  {% include "partials/site-foot.html" %}
-</main>
-</div>
 {% if p5 %}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
 {% for script in p5scripts %}

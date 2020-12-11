@@ -1,10 +1,10 @@
 ---
-title: "Short notes"
+title: "Projects"
 layout: 'layouts/home.html'
 list: true
-postHeader: "The things I have worked on"
+postHeader: "Projects and Work"
 pagination:
   data: collections.projects
-  size: 5
+  size: 10
   alias: projects
 ---

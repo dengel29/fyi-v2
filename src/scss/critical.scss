@@ -65,7 +65,7 @@ main:focus {
 h1,
 h2,
 h3{
-  font-weight: 900;
+  font-weight: 300;
 
   @include apply-utility('font', 'sans');
   // @include apply-utility('leading', 'flat');
