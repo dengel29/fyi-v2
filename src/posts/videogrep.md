@@ -63,6 +63,6 @@ Here's an example of a command I used that worked:
 
 ## Results
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/35jyeKx0WSA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe src="https://www.youtube.com/embed/35jyeKx0WSA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 The results.. well the results are pretty good. Totally worth an afternoon smoothing out some of the kinks.
