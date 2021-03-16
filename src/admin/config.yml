@@ -3,8 +3,8 @@ backend:
   branch: master
   repo: dengel29/fyi-v2
 local_backend: true
-media_folder: "src/images/uploads"
-public_folder: "dist/images/uploads"
+media_folder: "dist/images/uploads"
+public_folder: "/images/uploads"
 collections:
   - name: "blog"
     label: "Blog"
