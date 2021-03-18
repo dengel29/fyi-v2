@@ -2,7 +2,7 @@
 title: Making Supercuts from Youtube Videos
 date: 2021-03-18T08:13:59.518Z
 ---
-This is a little write-up of my little project supercut.fun.
+This is a little write-up of my little project [supercut.fun](https://supercut.fun).
 
 ## Inspiration
 
@@ -49,7 +49,7 @@ I also drew inspiration from Algolia's [youtube-captions-scraper](https://github
 8. On UX/UI — From its conception was a functionality-driven project, and aesthetics and user-experience were considered secondarily. I think that didn't bite me in the ass for this project because thankfully there aren't too many UI components, but if I approached a more complex project like this I think I would've ended up regretting it. Special thanks to [Grace Yang](http://thegraceyang.com) for taking time to give broad UX/UI recommendations.
 9. Do it live! — one of the first things I did after achieving proof of concept was make it live. Buying a domain as step 1 of a project is a great way to get a little dopamine rush and then do nothing. Buying a domain and then making your crappy side-project live is a great way to push yourself to keep updating and improving.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/40eee386-fa9f-40ac-8910-42a4743d72a2/Screen_Shot_2021-02-23_at_3.59.37_PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/40eee386-fa9f-40ac-8910-42a4743d72a2/Screen_Shot_2021-02-23_at_3.59.37_PM.png)
+![https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F40eee386-fa9f-40ac-8910-42a4743d72a2%2FScreen_Shot_2021-02-23_at_3.59.37_PM.png?table=block&id=06d08290-4f0b-4e2c-a5e9-4b8997dc46d7&width=2830&userId=81b1fc97-3faa-4a8b-af30-e639d0ce1859&cache=v2](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/40eee386-fa9f-40ac-8910-42a4743d72a2/Screen_Shot_2021-02-23_at_3.59.37_PM.png)
 
 [Supercut.fun](http://supercut.fun) in an earlier iteration, circa February 2021
 
