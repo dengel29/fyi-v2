@@ -1,4 +1,11 @@
-$highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary');
+$highlights: (
+  "dark",
+  "primary",
+  "secondary",
+  "tertiary",
+  "quaternary",
+  "quinary"
+);
 
 /**
  * WRAPPER
@@ -6,9 +13,9 @@ $highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary
  * centers the contents
  */
 
- .wrapper {
-  max-width: 70rem;
-  padding: 0 get-size('400');
+.wrapper {
+  max-width: 95vw;
+  padding: 0 get-size("400");
   margin: 0 auto;
   position: relative;
 }
@@ -16,7 +23,7 @@ $highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary
 .world-wrap {
   @extend .wrapper;
   min-height: 80vh;
-  color:get-color('dark');
+  color: get-color("dark");
   border-radius: 5px;
   margin-bottom: 10px;
 }

@@ -1,7 +1,8 @@
 ---
 title: Making Supercuts from Youtube Videos
-date: 2021-03-18T08:13:59.518Z
+date: "2021-03-18"
 ---
+
 This is a little write-up of my little project [supercut.fun](https://supercut.fun).
 
 ## Inspiration
@@ -10,7 +11,7 @@ I used `videogrep` a few months ago and thought it was great and was shocked by 
 
 `videogrep` creates supercuts from videos by taking a keyword, scanning the subtitle file associated with the video, and chopping up the video according to the timecodes in filtered subtitles.
 
-There are *way* more features and options than just that, but that's it in a nutshell. I wondered if I could replicate the core feature and make a web-based version. I made a NodeJS-based proof of concept of the core feature in under a week, then spent the next month on UI and fixing edge cases. Here's a quick write-up, on choices made and lessons learned.
+There are _way_ more features and options than just that, but that's it in a nutshell. I wondered if I could replicate the core feature and make a web-based version. I made a NodeJS-based proof of concept of the core feature in under a week, then spent the next month on UI and fixing edge cases. Here's a quick write-up, on choices made and lessons learned.
 
 ## Scope
 
@@ -24,8 +25,8 @@ And of course, make it usable.
 
 With that scope, I identified the technologies I would need to use. The two crucial packages were:
 
-* `ytdl-core` package for downloading YouTube videos
-* `fluent-ffmpeg` for cutting up videos
+- `ytdl-core` package for downloading YouTube videos
+- `fluent-ffmpeg` for cutting up videos
 
 I also drew inspiration from Algolia's [youtube-captions-scraper](https://github.com/algolia/youtube-captions-scraper) for getting the captions/subtitles. With those pieces in place, getting to a proof of concept was shockingly straightforward.
 
@@ -42,7 +43,7 @@ I also drew inspiration from Algolia's [youtube-captions-scraper](https://github
 1. All websites are just a series of forms. That's a hackneyed joke, but honestly I think the next project I build for myself is going strive to avoid any form elements. I think that's a good creative constraint.
 2. WebSockets are a perfectly viable way to communicate to users about long-running processes, but wording those updates are tough.
 3. There's often an unofficial API to tap into – in this case, it's YouTube's `get_video_info` API that's used to grab the subtitles, along with other crucial video info.
-4. On error messages - there are so many different ways and so many different points this simple 3-step website can fail, from captions not being found to videos being uploaded too recently (and therefore captions not being added yet) to video failures to the various input verification. This project really solidified for me how important it is to know the best way to communicate those errors, and where in the UI you display those errors, and how you gate off further progress. I also learned how *satisfying* it is to get an error message saying precisely why this video or that step failed.
+4. On error messages - there are so many different ways and so many different points this simple 3-step website can fail, from captions not being found to videos being uploaded too recently (and therefore captions not being added yet) to video failures to the various input verification. This project really solidified for me how important it is to know the best way to communicate those errors, and where in the UI you display those errors, and how you gate off further progress. I also learned how _satisfying_ it is to get an error message saying precisely why this video or that step failed.
 5. User testing – it's tough to find every way your website can break; it's easier to turn over every stone if you let a few people use it.
 6. Guiding feedback – it's tempting to tell people what you do and don't want to hear before you send it to them. I did a bit of that, but later stopped because the unfiltered feedback often held unexpected gems.
 7. Receiving feedback — I didn't always receive the feedback as gracefully as I should have. It's important to set ego aside when asking for feedback and take nothing personally. If you respond poorly you risk losing out on future valuable feedback.

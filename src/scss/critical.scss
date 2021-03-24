@@ -1,60 +1,69 @@
-@import './functions/get-size';
-@import './functions/get-color';
-@import './mixins/apply-utility';
-@import './config';
-$highlights: ('dark', 'primary', 'secondary', 'tertiary', 'quaternary', 'quinary');
+@import "./functions/get-size";
+@import "./functions/get-color";
+@import "./mixins/apply-utility";
+@import "./config";
+$highlights: (
+  "dark",
+  "primary",
+  "secondary",
+  "tertiary",
+  "quaternary",
+  "quinary"
+);
 // Global styles start
 :root {
-  --flow-space: #{get-size('600')};
+  --flow-space: #{get-size("600")};
 }
 
 .site-wrap {
-  overflow-x:hidden;
+  overflow-x: hidden;
 }
 
 ul {
-  list-style:none;
+  list-style: none;
 }
 
 li {
-  margin-bottom: get-size('300');
-
+  small {
+    margin-bottom: get-size("300");
+    display: block;
+  }
   & > a > svg {
-    margin-right:get-size('200')
+    margin-right: get-size("200");
   }
   path {
     @each $highlight in $highlights {
-      &[data-accent='#{$highlight}'] {
-        fill:get-color($highlight);
+      &[data-accent="#{$highlight}"] {
+        fill: get-color($highlight);
       }
-    };
+    }
   }
 
   path {
     @each $highlight in $highlights {
-      &[data-highlight='#{$highlight}'] {
-        fill:get-color($highlight);
+      &[data-highlight="#{$highlight}"] {
+        fill: get-color($highlight);
       }
     }
   }
 }
 
 body {
-  background: get-color('light');
+  background: get-color("light");
   line-height: 1.5;
-  font-size: get-size('500');
+  font-size: get-size("500");
   // font-family: 'Prompt';
-  @include apply-utility('font', 'base');
+  @include apply-utility("font", "base");
 }
 
 a:not([class]) {
   color: currentColor;
-  text-decoration-color: get-color('primary');
+  text-decoration-color: get-color("primary");
   text-decoration-thickness: 2px;
 }
 
 :focus {
-  outline: 2px dashed get-color('primary');
+  outline: 2px dashed get-color("primary");
   outline-offset: 0.25rem;
 }
 
@@ -64,26 +73,26 @@ main:focus {
 
 h1,
 h2,
-h3{
+h3 {
   font-weight: 300;
 
-  @include apply-utility('font', 'sans');
+  @include apply-utility("font", "sans");
   // @include apply-utility('leading', 'flat');
 }
 
 // High contrast selection because it can help visually-impaired
 // folks read the text easier
 ::selection {
-  color: get-color('light');
-  background-color: get-color('dark')
+  color: get-color("light");
+  background-color: get-color("dark");
   // We set this as an RGBA because that’s how you get a solid color, by using 0.99
   // alpha value. Browsers are wild.
   // background: rgba(get-color('dark-shade'), 0.99);
 }
 
 code::selection {
-  color: get-color('dark');
-  background-color: get-color('light')
+  color: get-color("dark");
+  background-color: get-color("light");
 }
 
 // Scrollbar styles
@@ -98,23 +107,20 @@ code::selection {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: get-color('dark');
+  background-color: get-color("dark");
   border-radius: 0.25rem;
 }
 
-@import 'reset';
+@import "reset";
 
 // BLOCKS
-@import './blocks/nav';
-@import './blocks/site-head';
-@import './blocks/site-foot';
-@import './blocks/blobs';
-@import './blocks/home-container';
-@import './blocks/post-list';
-@import './blocks/spinning-bullet';
+@import "./blocks/nav";
+@import "./blocks/site-head";
+@import "./blocks/site-foot";
+@import "./blocks/blobs";
+@import "./blocks/home-container";
+@import "./blocks/post-list";
+@import "./blocks/spinning-bullet";
 
 //UTILITIES
-@import './utilities/wrapper'
-
-
-
+@import "./utilities/wrapper";

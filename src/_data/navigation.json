@@ -1,25 +1,25 @@
 {
   "items": [
     {
-      "text": "Blog",
-      "url": "/blog/",
+      "text": "/blog",
+      "url": "/",
       "title": "Longer written things",
       "highlight": "primary"
     },
     {
-      "text": "Notes",
+      "text": "/notes",
       "url": "/notes/",
       "title": "Shorter written things",
       "highlight": "quinary"
     },
     {
-      "text": "Now",
+      "text": "/now",
       "url": "/now/",
       "title": "What's going on now",
       "highlight": "secondary"
     },
     {
-      "text": "Projects",
+      "text": "/projects",
       "url": "/projects/",
       "title": "Things I've Done",
       "highlight": "primary"

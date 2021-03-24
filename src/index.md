@@ -1,14 +1,18 @@
 ---
-title: "I'm Dan Engel"
-layout: 'layouts/home.html'
+title: "Dan's Blog"
+layout: "layouts/home.html"
+list: true
+postHeader: "Writing about coding"
 pagination:
   data: collections.blog
   size: 5
   alias: posts
-postHeader: "It's hard to keep up with a blog"
+paginationPrevText: "Newer posts"
+paginationNextText: "Older posts"
+paginationAnchor: "#post-list"
+img: true
+imgSrc: ../../images/bb-reflection.jpg
+imgAlt: "A profile of my dog, Baby, looking out of my old apartment window in Chengdu, Sichuan"
 highlight: "primary"
 accentHighlight: "secondary"
-img: true
-imgSrc: ../../images/selfie.jpg
-imgAlt: 'Me, on a roof in Taipei where I currently live. Wearing a mask'
 ---

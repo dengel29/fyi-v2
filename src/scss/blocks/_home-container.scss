@@ -1,52 +1,51 @@
 // Blocks
-@import './mixins/media-query';
+@import "./mixins/media-query";
 
 .home-container {
-  display:grid;
+  display: grid;
   width: 100%;
-  grid-template-areas: 
-  "hl hl hl hl . kv kv kv kv"
-  "ar ar ar . . kv kv kv kv"
-  "ar ar ar . . kv kv kv kv"
-  "ar ar ar . . kv kv kv kv";
-  @include media-query('md') {
-    grid-template-areas: 
-    "hl hl hl hl"
-    "ar ar ar ."
-    "ar ar ar ."
-    "ar ar ar ."
-    "kv kv kv kv"
-    "kv kv kv kv"
-    "kv kv kv kv"
-    "kv kv kv kv";
+  margin-top: 1.6em;
+  grid-template-areas:
+    "ar ar ar  . . kv kv kv kv"
+    "ar ar ar . . kv kv kv kv"
+    "ar ar ar . . kv kv kv kv"
+    "ar ar ar . . kv kv kv kv";
+  @include media-query("md") {
+    grid-template-areas:
+      "ar ar ar ar"
+      "ar ar ar ar"
+      "ar ar ar ar"
+      "ar ar ar ar"
+      "kv kv kv kv"
+      "kv kv kv kv"
+      "kv kv kv kv"
+      "kv kv kv kv";
   }
-
 }
 
-.home-container article { 
-   grid-area: ar
+.home-container article {
+  grid-area: ar;
 }
 
 .home-container .post-list {
-  grid-area: ar
+  grid-area: ar;
 }
 
 .home-headline {
-  width:100%;
-  margin-bottom: 0.4em;
-  grid-area: hl;
-  @include media-query('md') {
-    text-align:center;
-    max-width: 100%;
-  };
-  @include media-query('sm') {
-    text-align:center;
-    max-width: 100%
-  }
+  width: 100%;
+  line-height: 0.7;
+  margin-bottom: 0.6em;
 }
 
 .visual {
-  max-width: 15em;
-  justify-self:center;
-  grid-area: kv
+  max-width: 55vw;
+  justify-self: right;
+  grid-area: kv;
+  img {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: contrast(150%) grayscale(15%) saturate(100%);
+  }
 }

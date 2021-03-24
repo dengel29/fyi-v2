@@ -1,39 +1,37 @@
-{% extends "layouts/home-base.html" %} 
-{% set pageCriticalStyles = ['css/home.css'] %}
-{% block content %}
-  <article class="wrapper" data-highlight="{{highlight}}" data-accent="{{accentHighlight}}">
-    <div class="home-container">
+{% extends "layouts/home-base.html" %} {% set pageCriticalStyles =
+['css/home.css'] %} {% block content %}
+<article
+  class="wrapper"
+  data-highlight="{{highlight}}"
+  data-accent="{{accentHighlight}}"
+>
+  <div class="home-container">
+    <div class="home-text-content">
       <h1 class="home-headline">{{postHeader}}</h1>
 
-      {% if list %}
-        {% include "partials/post-list.html" %}  
-      {% else %}
-        <article>
-          {{content | safe}}
-        </article>
-      {% endif %}
-      {% if p5 %}
-      <div class="visual">
-          <div id="sketch-container"></div>
-          <p>{{sketchAlt}}</p>
-      </div>  
-      {% endif %}
-      {% if img %}
-      <div class="visual">
-        <img style="border-radius: 4px;" src="{{imgSrc}}" alt="{{imgAlt}}">   
-        <p>{{imgAlt}}</p> 
-      </div>
+      {% if list %} {% include "partials/post-list.html" %} {% else %}
+      <article>{{content | safe}}</article>
       {% endif %}
     </div>
-  </article>
-  {% if list %}
-  {% else %}
-    {% include "partials/readings.html" %}
-  {% endif %}
-{% if p5 %}
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"></script>
+    {% if p5 %}
+    <div class="visual">
+      <div id="sketch-container"></div>
+      <p>{{sketchAlt}}</p>
+    </div>
+    {% endif %} {% if img %}
+    <div class="visual">
+      <img style="border-radius: 4px" src="{{imgSrc}}" alt="{{imgAlt}}" />
+      <p>{{imgAlt}}</p>
+    </div>
+    {% endif %}
+  </div>
+</article>
+{% if list %} {% else %} {% include "partials/readings.html" %} {% endif %} {%
+if p5 %}
+<script
+  type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.min.js"
+></script>
 {% for script in p5scripts %}
 <script src="{{script}}"></script>
-{% endfor %}
-{% endif %}
-{% endblock %}
+{% endfor %} {% endif %} {% endblock %}

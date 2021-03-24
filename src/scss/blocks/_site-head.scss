@@ -1,37 +1,33 @@
-@import '../mixins/media-query';
-
+@import "../mixins/media-query";
 
 .site-head {
-  padding: get-size('400') 0;
-  border-top: 4px solid #1f567a;
+  padding: get-size("400") 0;
   &__inner {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    // display: flex;
     // margin-left:4em;
-    @include media-query('md') {
+    @include media-query("md") {
       justify-content: space-between;
     }
-  
-    @include media-query('sm') {
+
+    @include media-query("sm") {
       justify-content: center;
     }
   }
 
   &__brand {
     flex-shrink: 0;
-    margin-inline-end: get-size('600'); // Prevents nav bunching up to the logo
+    margin-inline-end: get-size("600"); // Prevents nav bunching up to the logo
     margin-top: auto;
     svg {
       width: 140px;
-      height: get-size('700');
-      margin:0;
-      padding: get-size('800');
+      height: get-size("700");
+      margin: 0;
+      padding: get-size("800");
 
       path {
         @each $highlight in $highlights {
-          &[data-highlight='#{$highlight}'] {
-            fill:get-color($highlight);
+          &[data-highlight="#{$highlight}"] {
+            fill: get-color($highlight);
           }
         }
       }

@@ -1,7 +1,10 @@
 {% if posts %}
 <ul class="post-list">
     {% for item in posts %}
-      <li> <a href="{{item.url}}"> {% include "partials/bullet.svg" %} {{ item.data.title }} </a></li>
+      <li> <a href="{{item.url}}"> {{ item.data.title }} </a>
+      <small>{{item.data.date}}</small>
+      </li>
+      
     {% endfor %}  
 </ul>
 {% endif %}
@@ -14,7 +17,6 @@
       <h4 >{{ item.data.title }}</h3>
       <p style="">{{item.data.projectDescription}}</p>
     </div>
-    
     <a href="{{item.url}}"> <img src="{{item.data.indexImage}}" height="70%" alt="{{item.data.indexImageAlt}}" style=";"> </a></div>
 {% endfor %} 
 </ul>
