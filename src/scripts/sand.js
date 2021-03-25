@@ -1,95 +1,118 @@
 let sketch = function (p) {
-  const grains = []
-  const empty = 255
-  SWITCH = 0
+  const grains = [];
+  const empty = 255;
+  SWITCH = 0;
   p.setup = function () {
-    CANVAS = p.createCanvas(320, 600).mouseMoved(dumpSand).touchMoved(dumpSand).mousePressed(dumpSand);
+    CANVAS = p
+      .createCanvas(300, 100)
+      .mouseMoved(dumpSand)
+      .touchMoved(dumpSand)
+      .mousePressed(dumpSand);
     p.pixelDensity(1);
-    CANVAS.background(255);
-    p.frameRate(30)
-  }
-
+    CANVAS.background(empty);
+    p.frameRate(30);
+  };
 
   dumpSand = function () {
-    p.setShakeThreshold(10)
+    p.setShakeThreshold(10);
     p.loadPixels();
     let d = p.pixelDensity();
     // let offset = [4, CANVAS.width - 4]
     for (i = 0; i < 10; i++) {
-      offset = Math.round(p.random(-2, 2))
-      let off = Grain.getOffset(Math.round(p.pmouseX - offset), Math.round(p.pmouseY + offset), CANVAS.width, d)
-      let grain = new Grain(off, Math.round(p.pmouseX), Math.round(p.pmouseY), CANVAS.width)
+      offset = Math.round(p.random(-2, 2));
+      let off = Grain.getOffset(
+        Math.round(p.pmouseX - offset),
+        Math.round(p.pmouseY + offset),
+        CANVAS.width,
+        d
+      );
+      let grain = new Grain(
+        off,
+        Math.round(p.pmouseX),
+        Math.round(p.pmouseY),
+        CANVAS.width
+      );
       // grain.colorPixel()
-      colorPixel(grain)
-      grains.push(grain)
+      colorPixel(grain);
+      grains.push(grain);
     }
-    return false
-  }
+    return false;
+  };
 
   p.draw = function () {
-    dropSand()
+    dropSand();
     // dumpSand()
     if (grains.length > 0) {
       grains.forEach((grain, i) => {
-        let pixelBelow = grain.nextPixel
-        let pixelBelowAndLeft = pixelBelow - 4
-        let pixelBelowAndRight = pixelBelow + 4
+        let pixelBelow = grain.nextPixel;
+        let pixelBelowAndLeft = pixelBelow - 4;
+        let pixelBelowAndRight = pixelBelow + 4;
         if (grain.y == CANVAS.height - 1) {
           // grain.atRest = true
           // grain.update()
           // grains[i] = grain.update()
           // grains.splice(i, 1)
-          return
-
+          return;
         }
         // keeps pixel where it is if all three pixels below are occuppied
-        if ((p.pixels[pixelBelow] !== empty) && (p.pixels[pixelBelowAndLeft] !== empty) && (p.pixels[pixelBelowAndRight] !== empty)) {
-
-          return
-
+        if (
+          p.pixels[pixelBelow] !== empty &&
+          p.pixels[pixelBelowAndLeft] !== empty &&
+          p.pixels[pixelBelowAndRight] !== empty
+        ) {
+          return;
         }
         // moves pixel down if space below is empty
         if (shouldPixelMove(pixelBelow)) {
-
-          grains[i] = updateGrain(grain)
-        } else if (shouldPixelMove(pixelBelowAndLeft) && (shouldPixelMove(pixelBelowAndRight))) {
+          grains[i] = updateGrain(grain);
+        } else if (
+          shouldPixelMove(pixelBelowAndLeft) &&
+          shouldPixelMove(pixelBelowAndRight)
+        ) {
           if (SWITCH == 0) {
-            grain.nextPixel = pixelBelowAndLeft
-            SWITCH = Math.round(p.random(0, 1))
-            grains[i] = updateGrain(grain)
+            grain.nextPixel = pixelBelowAndLeft;
+            SWITCH = Math.round(p.random(0, 1));
+            grains[i] = updateGrain(grain);
           } else {
-            grain.nextPixel = pixelBelowAndRight
-            SWITCH = Math.round(p.random(0, 1))
-            grains[i] = updateGrain(grain)
+            grain.nextPixel = pixelBelowAndRight;
+            SWITCH = Math.round(p.random(0, 1));
+            grains[i] = updateGrain(grain);
           }
-        }
-        else if (shouldPixelMove(pixelBelowAndLeft)) {
-
-          grain.nextPixel = pixelBelowAndLeft
-          grains[i] = updateGrain(grain)
+        } else if (shouldPixelMove(pixelBelowAndLeft)) {
+          grain.nextPixel = pixelBelowAndLeft;
+          grains[i] = updateGrain(grain);
         } else if (!shouldPixelMove(pixelBelowAndLeft)) {
-
-          grain.nextPixel = pixelBelowAndRight
-          grains[i] = updateGrain(grain)
+          grain.nextPixel = pixelBelowAndRight;
+          grains[i] = updateGrain(grain);
         } else {
-          grains[i] = grain
+          grains[i] = grain;
         }
-      })
+      });
     }
     p.updatePixels();
-  }
+  };
 
   handDropSand = function () {
     p.loadPixels();
     let d = p.pixelDensity();
-    let off = Grain.getOffset(Math.round(p.pmouseX), Math.round(p.pmouseY), CANVAS.width, d)
-    let grain = new Grain(off, Math.round(p.pmouseX), Math.round(p.pmouseY), CANVAS.width)
+    let off = Grain.getOffset(
+      Math.round(p.pmouseX),
+      Math.round(p.pmouseY),
+      CANVAS.width,
+      d
+    );
+    let grain = new Grain(
+      off,
+      Math.round(p.pmouseX),
+      Math.round(p.pmouseY),
+      CANVAS.width
+    );
     colorPixel(grain);
-    grains.push(grain)
-    p.updatePixels()
-  }
+    grains.push(grain);
+    p.updatePixels();
+  };
   // /**
-  //  * 
+  //  *
   //  * @param {Event} e the mouse press event
   //  */
   // p.mouseDragged = function (e) {
@@ -107,45 +130,45 @@ let sketch = function (p) {
     p.loadPixels();
     let d = p.pixelDensity();
     // let offset = [4, CANVAS.width - 4]
-    offset = Math.round(p.random(-2, 2))
-    let off = Grain.getOffset(CANVAS.width / 2, 0, CANVAS.width, d)
-    off += offset * 4
-    let grain = new Grain(off, CANVAS.width / 2, 0, CANVAS.width)
+    offset = Math.round(p.random(-2, 2));
+    let off = Grain.getOffset(CANVAS.width / 2, 0, CANVAS.width, d);
+    off += offset * 4;
+    let grain = new Grain(off, CANVAS.width / 2, 0, CANVAS.width);
     // grain.colorPixel()
-    colorPixel(grain)
-    grains.push(grain)
-    p.updatePixels()
-  }
+    colorPixel(grain);
+    grains.push(grain);
+    p.updatePixels();
+  };
 
   colorPixel = function (grain) {
     p.pixels[grain.pixelStart] = grain.color[0];
     p.pixels[grain.pixelStart + 1] = grain.color[1];
     p.pixels[grain.pixelStart + 2] = grain.color[2];
-  }
+  };
 
   emptyPixel = function (grain) {
-    p.pixels[grain.pixelStart] = empty
-    p.pixels[grain.pixelStart + 1] = empty
-    p.pixels[grain.pixelStart + 2] = empty
-  }
+    p.pixels[grain.pixelStart] = empty;
+    p.pixels[grain.pixelStart + 1] = empty;
+    p.pixels[grain.pixelStart + 2] = empty;
+  };
 
   colorNextPixel = function (grain) {
     p.pixels[grain.nextPixel] = grain.color[0];
     p.pixels[grain.nextPixel + 1] = grain.color[1];
     p.pixels[grain.nextPixel + 2] = grain.color[2];
-  }
+  };
 
   updateGrain = function (grain) {
-    emptyPixel(grain)
-    colorNextPixel(grain)
-    grain.y = grain.nextRow()
-    grain.pixelStart = grain.nextPixel
-    grain.nextPixel = grain.getNextPixelBelow(CANVAS.width)
-    return grain
-  }
+    emptyPixel(grain);
+    colorNextPixel(grain);
+    grain.y = grain.nextRow();
+    grain.pixelStart = grain.nextPixel;
+    grain.nextPixel = grain.getNextPixelBelow(CANVAS.width);
+    return grain;
+  };
 
   /**
-   * 
+   *
    * @param {Number} pixel the position of the pixel below, below-left, or below-right the current pixel
    * @returns {Boolean} whether or not the pixel can move to the space below
    */
@@ -153,13 +176,11 @@ let sketch = function (p) {
   function shouldPixelMove(pixel) {
     // if this is true, the pixel in the checked space is empty
     // loadPixels()
-    return p.pixels[pixel] === empty
+    return p.pixels[pixel] === empty;
   }
-
-}
+};
 
 ////////////////////
-
 
 // let sketch = function (p) {
 //   let grains = [];
@@ -171,7 +192,6 @@ let sketch = function (p) {
 //     CANVAS.background(100);
 //     p.frameRate(30);
 //   }
-
 
 //   p.draw = function () {
 //     dropSand();
@@ -208,7 +228,7 @@ let sketch = function (p) {
 //   }
 
 //   /**
-//    * 
+//    *
 //    * @param {Event} e the mouse press event
 //    */
 //   // p.mouseDragged = function (e) {
@@ -219,7 +239,6 @@ let sketch = function (p) {
 //   //   let d = p.pixelDensity();
 //   //   let off = (y * WIDTH + x) * d * 4;
 //   //   placePixel(off);
-
 
 //   //   let pixelBelow = off + WIDTH * 4
 //   //   grains.push([off, pixelBelow, x, y, d])
@@ -244,7 +263,7 @@ let sketch = function (p) {
 //   }
 
 //   /**
-//    * 
+//    *
 //    * @param {Number} off the beginning of the 4 digit pixel RGBA value
 //    */
 //   placePixel = function (off) {
@@ -255,7 +274,7 @@ let sketch = function (p) {
 //   }
 
 //   /**
-//    * 
+//    *
 //    * @param {Number} pixel the position of the pixel below the current pixel
 //    * @returns {Boolean} whether or not the pixel can move to the space below
 //    */
@@ -267,9 +286,9 @@ let sketch = function (p) {
 //   }
 
 //   /**
-//    * 
+//    *
 //    * @param {Number} currentPixel the beginning of the 4 digit pixel RGBA value
-//    * @param {Number} nextPixel the beginning of the 4 digit pixel RGBA value below the off 
+//    * @param {Number} nextPixel the beginning of the 4 digit pixel RGBA value below the off
 //    * @param {Number} y the row of the next row below
 //    * @param {Number} d the pixel density
 //    */
@@ -289,4 +308,4 @@ let sketch = function (p) {
 //   }
 // }
 
-new p5(sketch, 'sketch-container')
+new p5(sketch, "sketch-container");

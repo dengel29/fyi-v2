@@ -1,5 +1,9 @@
 @import "../mixins/media-query";
 
+header {
+  display: flex;
+  justify-content: space-between;
+}
 .site-head {
   padding: get-size("400") 0;
   &__inner {

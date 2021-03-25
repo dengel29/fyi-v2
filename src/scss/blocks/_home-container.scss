@@ -5,21 +5,19 @@
   display: grid;
   width: 100%;
   margin-top: 1.6em;
+  img {
+    border-radius: 5px;
+  }
   grid-template-areas:
     "ar ar ar  . . kv kv kv kv"
     "ar ar ar . . kv kv kv kv"
     "ar ar ar . . kv kv kv kv"
     "ar ar ar . . kv kv kv kv";
   @include media-query("md") {
+    width: 95vw;
     grid-template-areas:
-      "ar ar ar ar"
-      "ar ar ar ar"
-      "ar ar ar ar"
-      "ar ar ar ar"
-      "kv kv kv kv"
-      "kv kv kv kv"
-      "kv kv kv kv"
-      "kv kv kv kv";
+      "ar"
+      "kv";
   }
 }
 
@@ -42,10 +40,21 @@
   justify-self: right;
   grid-area: kv;
   img {
-    height: 100vh;
+    height: 75vh;
     width: 100%;
     object-fit: cover;
     object-position: center;
     filter: contrast(150%) grayscale(15%) saturate(100%);
+  }
+  canvas {
+    max-width: 25%;
+  }
+  @include media-query("md") {
+    justify-self: center;
+    max-width: 100%;
+    img {
+      max-width: 90%;
+      max-height: 25vh;
+    }
   }
 }

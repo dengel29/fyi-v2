@@ -2,7 +2,7 @@
 title: "Short notes"
 layout: "layouts/home.html"
 list: true
-postHeader: "< 1 reads"
+postHeader: "> 1 minute reads"
 pagination:
   data: collections.notes
   size: 5
@@ -14,5 +14,9 @@ highlight: "quinary"
 accentHighlight: "quaternary"
 p5: true
 p5scripts: [scripts/boid.js, /scripts/logic.js]
-sketchAlt: Boids flocking simulation, inspired Coding Train, with a twist of touch interaction
+img: true
+webpSrc: ../../images/bb-reflection.webp
+imgSrc: ../../images/bb-reflection.jpg
+imgAlt: "A profile of my dog, Baby, looking out of my old apartment window in Chengdu, Sichuan"
+# sketchAlt: Boids flocking simulation, inspired Coding Train, with a twist of touch interaction
 ---

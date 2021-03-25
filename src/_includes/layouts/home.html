@@ -13,17 +13,15 @@
       <article>{{content | safe}}</article>
       {% endif %}
     </div>
-    {% if p5 %}
+
     <div class="visual">
-      <div id="sketch-container"></div>
-      <p>{{sketchAlt}}</p>
-    </div>
-    {% endif %} {% if img %}
-    <div class="visual">
-      <img style="border-radius: 4px" src="{{imgSrc}}" alt="{{imgAlt}}" />
+      <picture>
+        <source srcset="{{webpSrc}}" type="image/webp" />
+        <source srcset="{{imgSrc}}" type="image/jpg" />
+        <img src="{{imgSrc}}" alt="{{imgAlt}}" />
+      </picture>
       <p>{{imgAlt}}</p>
     </div>
-    {% endif %}
   </div>
 </article>
 {% if list %} {% else %} {% include "partials/readings.html" %} {% endif %} {%

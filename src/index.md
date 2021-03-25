@@ -11,8 +11,9 @@ paginationPrevText: "Newer posts"
 paginationNextText: "Older posts"
 paginationAnchor: "#post-list"
 img: true
-imgSrc: ../../images/bb-reflection.jpg
-imgAlt: "A profile of my dog, Baby, looking out of my old apartment window in Chengdu, Sichuan"
+imgSrc: "../../images/shenzhen-flare.JPG"
+webpSrc: "../../images/shenzhen-flare.webp"
+imgAlt: "Art exhibit in Shenzhen at Yachang Museum"
 highlight: "primary"
 accentHighlight: "secondary"
 ---

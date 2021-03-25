@@ -1,4 +1,5 @@
 <header role="banner" class="site-head">
+<div class="nav-content">
       <a href="/" aria-label="{{ site.name }} - home" class="site-head__brand">
         {% include "partials/dengel.svg" %}
       </a>
@@ -11,4 +12,9 @@
           {% endfor %}
         </ul>
       </nav>
+</div>
+  {% if p5 %}
+    <div id="sketch-container"></div>
+    
+  {% endif %}
 </header

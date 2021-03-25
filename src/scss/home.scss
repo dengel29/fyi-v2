@@ -1,8 +1,7 @@
-@import 'config';
-@import './functions/get-color';
-@import './functions/get-size';
-@import 'project';
-
+@import "config";
+@import "./functions/get-color";
+@import "./functions/get-size";
+@import "project";
 
 article > *:not(h1) {
   margin: revert;
@@ -10,92 +9,97 @@ article > *:not(h1) {
 
 @media (pointer: coarse) and (pointer: fine) {
   .readings__header:focus p::after {
-    position:absolute;
+    position: absolute;
     content: "The articles here are sent from my phone and updated twice daily. Click on the link on the left to read about it";
-    background-color: lighten(get-color('dark'), 50%);
+    background-color: lighten(get-color("dark"), 50%);
     padding: 0.8em;
-    color: get-color('color');
-    border-radius:3px;
-    min-width:4em;
-    max-width:10em;
-    text-align:center; 
+    color: get-color("color");
+    border-radius: 3px;
+    min-width: 4em;
+    max-width: 10em;
+    text-align: center;
   }
 }
 
 #sketch-container > canvas {
-  width: 100% !important;
+  width: 8rem !important;
   height: 100% !important;
   touch-action: none;
   cursor: grabbing;
+  image-rendering: optimizeSpeed; // Older versions of FF
+  image-rendering: -moz-crisp-edges; // FF 6.0+
+  image-rendering: -webkit-optimize-contrast; // Webkit (non standard naming)
+  image-rendering: -o-crisp-edges; // OS X & Windows Opera (12.02+)
+  image-rendering: crisp-edges; // Possible future browsers.
+  -ms-interpolation-mode: nearest-neighbor; // IE (non s
 }
 
-.visual { 
+.visual {
   p {
     font-size: 0.6em;
-    color: get-color('dark')
+    color: get-color("dark");
   }
 }
 
 .readings {
   &__header {
-    display:flex;
-    flex-direction:row;
-    margin-left:2em;
+    display: flex;
+    flex-direction: row;
+    margin-left: 2em;
     p {
-      font-size: get-size('400');
-      margin-left:0.8em;
-      color:get-color('dark');
-      padding:2px;
+      font-size: get-size("400");
+      margin-left: 0.8em;
+      color: get-color("dark");
+      padding: 2px;
       cursor: help;
     }
     @media (hover: hover) {
       p:hover::after {
-        position:absolute;
+        position: absolute;
         content: "The articles here are sent from my phone and updated twice daily. Click on the link on the left to read about it";
-        background-color: lighten(get-color('dark'), 50%);
+        background-color: lighten(get-color("dark"), 50%);
         padding: 0.8em;
-        color: get-color('color');
-        border-radius:3px;
-        min-width:4em;
-        max-width:10em;
-        text-align:center; 
+        color: get-color("color");
+        border-radius: 3px;
+        min-width: 4em;
+        max-width: 10em;
+        text-align: center;
       }
     }
   }
   &__wrapper {
     margin-top: 1em;
-
   }
   > * * {
-    margin:revert;
+    margin: revert;
   }
 
   &__inner {
     ul {
-      margin:revert;
+      margin: revert;
       display: flex;
       flex-direction: row;
       align-items: center;
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
-    
-    a {
-      margin-right: 0.8em;
-      text-decoration:none;
-    }
-    > * {
-      flex-shrink: 0;
-      padding: 0 0 get-size('400') 0;
-    }
-  
+
+      a {
+        margin-right: 0.8em;
+        text-decoration: none;
+      }
+      > * {
+        flex-shrink: 0;
+        padding: 0 0 get-size("400") 0;
+      }
+
       li {
-        color: get-color('dark');
+        color: get-color("dark");
         width: 11em;
         height: 12em;
-        border: 2px solid get-color('dark');
-        padding: .6em;
+        border: 2px solid get-color("dark");
+        padding: 0.6em;
         border-radius: 2px;
-        font-size: get-size('400');
+        font-size: get-size("400");
       }
     }
   }
